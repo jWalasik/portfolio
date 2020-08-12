@@ -1,0 +1,65 @@
+{
+  "header": "Projects",
+  "projects": [
+    {
+      "title": "skyAtlas",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    },
+    {
+      "title": "strongLyfts",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    },
+    {
+      "title": "dietHelper",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    },
+    {
+      "title": "apolloBoilerplate",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    },
+    {
+      "title": "triangleSolver",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    },
+    {
+      "title": "solarSysCalculator",
+      "stack": "three.js, WebGL",
+      "github": "",
+      "live": "",
+      "short": "",
+      "long": "",
+      "image": "",
+      "study": ""
+    }    
+  ]
+}

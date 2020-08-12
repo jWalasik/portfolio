@@ -1,0 +1,9 @@
+{
+  "header": "O Mnie",
+  "description": {
+    "introduction": "Nazywam się Jacek Walasik i jestem programistą <strong>Javascript</strong>.",
+    "experience": "<strong>Web Developement</strong>em zajmuję się hobbistycznie od <strong>ponad 2 lat</strong>. Wszystkie moje projekty są dostępne na <strong>GitHubie<strong>, a wybrane można zobaczyć <strong>poniżej</strong>.",
+    "skills": "Specjalizuję się w rozwiązaniach <strong>Full Stack</strong>. Jestem w stanie zapewnić kompleksowe rozwiązania pokrywające cały stos technologiczny. Potrafie tworzyć szybkie <strong>strony</strong> i <strong>aplikacje</strong>, rozbudowane <strong>serwery</strong> oraz wydajne <strong>bazy danych</strong>. Bardziej szczególowy opis moich umiejętności można znaleźć <strong>tutaj</strong>.",
+    "goals": "Szukam przede wszystkim możliwości rozwoju i pracy pełnej wyzwań. Chciałbym wykorzystać moją wiedzę i umiejętności na stanowsiku <strong>Javascript Developer</strong>a i w pełni poświęcić się programowaniu. Jeśli jesteś zainteresowany/a współpracą, zapraszam do <strong>kontaktu</strong>."
+  }
+}
