@@ -2,7 +2,8 @@ import React from 'react'
 import styled from 'styled-components'
 
 const HeaderWrapper = styled.header`
-  border: 1px solid green
+  border: 1px solid green;
+  background-color: gray;
 `
 
 const Header = () => {

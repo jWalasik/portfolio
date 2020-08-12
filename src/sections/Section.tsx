@@ -1,14 +1,21 @@
-import React, { useContext } from 'react'
+import React, { useContext, useMemo } from 'react'
+import styled from 'styled-components'
 import { ScrollContext } from '../ctx/Scroll'
 
+const SectionWrapper = styled.section`
+  border: 1px solid blue;
+  min-height: 100vh;
+  background-color: ${props=>props.theme.color.neon};
+`
+
 const Section = ({id, children} : {id: string, children: React.ReactNode}) => {
-  const {addRef} = React.useContext(ScrollContext)
-  const ref = React.useMemo(()=>addRef(id), [id])
+  const {addRef} = useContext(ScrollContext)
+  const ref = useMemo(()=>addRef(id), [id])
 
   return (
-    <section ref={ref} id={id} >
+    <SectionWrapper ref={ref} id={id} >
       {children}
-    </section>
+    </SectionWrapper>
   )
 }
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 type ContextProps = {
   addRef: any,
@@ -10,14 +10,14 @@ export const ScrollContext = React.createContext<Partial<ContextProps>>({})
 
 export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   let refList = {}
-  React.useEffect(()=>{
+  useEffect(()=>{
     document.addEventListener('scroll', debounce(handleScroll, 100, false), true)
 
     return () => document.removeEventListener('scroll', handleScroll, true);
   }, [])
 
   const handleScroll = () => {
-    
+    console.log('scrolling', refList)
   }
   
   const addRef = (id: string) => {
@@ -25,10 +25,10 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
     refList = {...refList, [id]: ref}
     return ref
   }
+
   const scrollTo = (id: string) => {
     console.log('scroll to', id)
   }
-
 
   const debounce = (func: any, time: number, immediate:boolean) => {
     let timeout: any;
