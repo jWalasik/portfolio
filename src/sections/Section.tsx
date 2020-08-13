@@ -5,7 +5,6 @@ import { ScrollContext } from '../ctx/Scroll'
 const SectionWrapper = styled.section`
   border: 1px solid blue;
   min-height: 100vh;
-  background-color: ${props=>props.theme.color.neon};
 `
 
 const Section = ({id, children} : {id: string, children: React.ReactNode}) => {

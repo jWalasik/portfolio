@@ -1,4 +1,6 @@
+import React from 'react'
 import i18n from 'i18next'
+import { I18nextProvider } from 'react-i18next'
 
 import translationEN from './locales/en/translation.json'
 import translationPL from './locales/pl/translation.json'
@@ -42,4 +44,6 @@ i18n.init({
   }
 })
 
-export default i18n;
+export const i18nProvider = ({children}: {children: React.ReactNode}) => (
+  <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
+)

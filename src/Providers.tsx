@@ -2,12 +2,14 @@ import React from 'react'
 import { BrowserRouter } from 'react-router-dom'
 import { ScrollProvider } from './ctx/Scroll'
 import { Theme } from './theme/Theme'
+import { i18nProvider } from './i18n/i18n'
 
 const Providers = ({children} : {children: React.ReactNode}) => {
   const providers: Array<React.JSXElementConstructor<React.PropsWithChildren<any>>> = [
     BrowserRouter,
     ScrollProvider,
-    Theme
+    Theme,
+    i18nProvider
   ]
   
   return (
