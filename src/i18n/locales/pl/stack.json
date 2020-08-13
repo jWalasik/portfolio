@@ -1,23 +1,27 @@
 {
-  "core": [
-    "Przeważnie pracuję w Javascript, to zdecydowanie mój najmocniejszy język. Ostatnio w projektach zacząłem wykorzystywać dodatkowo Typescript.",
-    "Jakość i utrzymywalność kodu jest dla mnie bardzo ważna. Piszę testy jednostkowe i integracyjne używając bibliotek Jest i Enzyme. Zawsze używam systemu kontroli wersji GIT oraz dbam o dokumentacje.",
-    "Potrafię sprawnie posługiwać się menadżerami NPM i Yarn, oraz skonfigurować Webpacka."
-  ],
-  "frontend": [
-    "My main area of expertise is React, I've tried it in every flavor: Browser, SSR, Native and keep up with all the latest features (Hooks, Suspense, Lazy-Loading). In regard to Design I'm experienced with a wide variety of options. While I prefer CSS-in-JS like Styled-Components, I'm perfectly fine with SASS or templating engines such as Handlebars or EJS. I adhere to semantic HTML5, BEM naming conventions and Accessibility"
-  ],
-  "backend": [
-    "Moja wiedza z zakresu node.js, pozwala mi na pisanie wydajnych serwerów oraz rozwiązywanie kompleksowych problemów.", 
-    "Sprawnie poruszam się we frameworkach Express i Apollo. Biegle programuje asynchronicznie oraz tworzę wydajne RESTful/GrapQL API.",
-    "Opanowałem kluczowe aspekty Bezpieczeństwa Sieci. Pracowałem z popularnymi metodami Uwierzytelniania i Autoryzacji. Posiadam również wiedzę z zakresu budowy sieci i protokołów HTTP/HTTPS.", 
-    "Jestem zaznajomiony z popularnymi wzorcami architektoniczymi: Monolith, MVC, SOA, Microservice, Serverless."
-  ],
-  "databases": [
-    "W zależności od potrzeb jestem w stanie budować i utrzymywać bazy danych SQL jak i noSQL.",
-    "Z nie relacyjnych baz danych najlepiej czuje się pracując w MongoDB + Mongoose. Dla baz relacyjnych używałem MySQL wraz z biblioteka Sequelize.", "Oprócz tego świetnie pracowało mi się z platformą Firebase."
-  ],
-  "other": {
+  "header": "Stos Technologiczny",
+  "description": "Uwielbiam poznawać i testować nowe technologie. Poniższe należą do moich ulubionych ale nie ograniczam się do nich.",
+  "techs": {  
+    "core": [
+      "Przeważnie pracuję w Javascript, to zdecydowanie mój najmocniejszy język. Ostatnio w projektach zacząłem wykorzystywać dodatkowo Typescript.",
+      "Jakość i utrzymywalność kodu jest dla mnie bardzo ważna. Piszę testy jednostkowe i integracyjne używając bibliotek Jest i Enzyme. Zawsze używam systemu kontroli wersji GIT oraz dbam o dokumentacje.",
+      "Potrafię sprawnie posługiwać się menadżerami NPM i Yarn, oraz skonfigurować Webpacka."
+    ],
+    "frontend": [
+      "My main area of expertise is React, I've tried it in every flavor: Browser, SSR, Native and keep up with all the latest features (Hooks, Suspense, Lazy-Loading). In regard to Design I'm experienced with a wide variety of options. While I prefer CSS-in-JS like Styled-Components, I'm perfectly fine with SASS or templating engines such as Handlebars or EJS. I adhere to semantic HTML5, BEM naming conventions and Accessibility"
+    ],
+    "backend": [
+      "Moja wiedza z zakresu node.js, pozwala mi na pisanie wydajnych serwerów oraz rozwiązywanie kompleksowych problemów.", 
+      "Sprawnie poruszam się we frameworkach Express i Apollo. Biegle programuje asynchronicznie oraz tworzę wydajne RESTful/GrapQL API.",
+      "Opanowałem kluczowe aspekty Bezpieczeństwa Sieci. Pracowałem z popularnymi metodami Uwierzytelniania i Autoryzacji. Posiadam również wiedzę z zakresu budowy sieci i protokołów HTTP/HTTPS.", 
+      "Jestem zaznajomiony z popularnymi wzorcami architektoniczymi: Monolith, MVC, SOA, Microservice, Serverless."
+    ],
+    "databases": [
+      "W zależności od potrzeb jestem w stanie budować i utrzymywać bazy danych SQL jak i noSQL.",
+      "Z nie relacyjnych baz danych najlepiej czuje się pracując w MongoDB + Mongoose. Dla baz relacyjnych używałem MySQL wraz z biblioteka Sequelize.", "Oprócz tego świetnie pracowało mi się z platformą Firebase."
+    ],
+    "other": {
 
+    }
   }
 }

@@ -1,9 +1,9 @@
 import React from 'react'
 import Section from './Section'
-import { Trans } from 'react-i18next'
+import { Trans, useTranslation } from 'react-i18next'
 
 const About = () => {
-  //const {t} = useTranslation('about')
+  const {t} = useTranslation('about')
   return (
     <Section id='about'>
       <h2><Trans i18nKey='about:header'></Trans></h2>

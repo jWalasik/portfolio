@@ -1,65 +1,120 @@
 {
-  "header": "Projects",
+  "header": "Projekty",
+  "description": "Ta sekcja zawiera niektóre z moich projektów. This section contains some of my projects, whenever I build something, I always seek to learn as much as possible, exposing my self to new technologies and tools. I also try to document and summarize though process behind each one project, so for more information about development process check out case studies.",
   "projects": [
     {
       "title": "skyAtlas",
       "stack": "three.js, WebGL",
-      "github": "",
-      "live": "",
-      "short": "",
-      "long": "",
+      "github": "https://github.com/elPaleniozord/skyAtlas",
+      "live": "https://elpaleniozord.github.io/skyAtlas/",
+      "description": {
+        "short": "skyAtlas is a progressive web application for stargazing enthusiasts, helping to indentify and observe celestial objects in the sky.",
+        "long": "Learn about the history, mythology and science as you explore Milky Way. Presented with rich graphics and multitude of interesting information.",
+        "features": [
+          "Stars, planets and constellatons in real time!",
+          "Huge database of 119,617 stars, with precise location, magnitude and spectrum.", 
+          "Mobile sensor support - just point your device ", 
+          "Control what you see by toggling objects, helpers and adjusting magnitude."
+        ],
+        "technical": "skyAtlas was built with vanilla Javascript, leveraging graphic acceleration with WebGL and three.js library. Stellar data is derrived from various sources mainly HYG 3.0 Database, NASA JPL and Wikipedia. "
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/sky-atlas"
     },
     {
       "title": "strongLyfts",
-      "stack": "three.js, WebGL",
-      "github": "",
-      "live": "",
-      "short": "",
-      "long": "",
+      "stack": "React, Firebase",
+      "github": "https://github.com/elPaleniozord/strongLyfts",
+      "live": "https://gentle-eyrie-84798.herokuapp.com/",
+      "description": {
+        "short": "strongLyfts is a workout assisting application based on popular 5x5 program.",
+        "long": "",
+        "features": [
+          "",
+          "", 
+          "", 
+          ""
+        ],
+        "technical": ""
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/strong-lyfts"
     },
     {
       "title": "dietHelper",
-      "stack": "three.js, WebGL",
-      "github": "",
+      "stack": "Apollo, MongoDB",
+      "github": "https://github.com/elPaleniozord/dietHelper",
       "live": "",
-      "short": "",
-      "long": "",
+      "description": {
+        "short": "dietHelper is fully automated meal planner.",
+        "long": "",
+        "features": [
+          "",
+          "", 
+          "", 
+          ""
+        ],
+        "technical": ""
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/diet-helper"
     },
     {
       "title": "apolloBoilerplate",
       "stack": "three.js, WebGL",
       "github": "",
       "live": "",
-      "short": "",
-      "long": "",
+      "description": {
+        "short": "apolloBoilerplate",
+        "long": "",
+        "features": [
+          "",
+          "", 
+          "", 
+          ""
+        ],
+        "technical": ""
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/apollo-boilerplate"
     },
     {
       "title": "triangleSolver",
-      "stack": "three.js, WebGL",
-      "github": "",
-      "live": "",
-      "short": "",
-      "long": "",
+      "stack": "typescript",
+      "github": "https://github.com/elPaleniozord/triangleSolver",
+      "live": "https://triangle-solver.netlify.app",
+      "description": {
+        "short": "triangleSolver ",
+        "long": "",
+        "features": [
+          "",
+          "", 
+          "", 
+          ""
+        ],
+        "technical": ""
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/triangle-solver"
     },
     {
       "title": "solarSysCalculator",
-      "stack": "three.js, WebGL",
+      "stack": "javascript",
       "github": "",
       "live": "",
-      "short": "",
-      "long": "",
+      "description": {
+        "short": "solarSysCalculator",
+        "long": "",
+        "features": [
+          "",
+          "", 
+          "", 
+          ""
+        ],
+        "technical": ""
+      },
       "image": "",
-      "study": ""
+      "study": "/case-study/solar-calculator"
     }    
   ]
 }

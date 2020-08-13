@@ -6,10 +6,11 @@ import { i18nProvider } from './i18n/i18n'
 
 const Providers = ({children} : {children: React.ReactNode}) => {
   const providers: Array<React.JSXElementConstructor<React.PropsWithChildren<any>>> = [
+    i18nProvider,
     BrowserRouter,
     ScrollProvider,
     Theme,
-    i18nProvider
+    
   ]
   
   return (

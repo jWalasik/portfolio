@@ -44,6 +44,8 @@ i18n.init({
   }
 })
 
+export const i18nInstance = i18n
+
 export const i18nProvider = ({children}: {children: React.ReactNode}) => (
   <I18nextProvider i18n={i18n}>{children}</I18nextProvider>
 )
