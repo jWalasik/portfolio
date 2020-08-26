@@ -9,8 +9,7 @@ const Providers = ({children} : {children: React.ReactNode}) => {
     i18nProvider,
     BrowserRouter,
     ScrollProvider,
-    Theme,
-    
+    Theme    
   ]
   
   return (

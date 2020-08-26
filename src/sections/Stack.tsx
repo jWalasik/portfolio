@@ -3,7 +3,10 @@ import Section from './Section'
 import { Trans, useTranslation } from 'react-i18next'
 
 const Stack = () => {
-  const {t} = useTranslation('stack')
+  const {t, i18n} = useTranslation('stack')
+  const getTech = () => {
+    
+  }
   return (
     <Section id='stack'>
       <h2><Trans i18nKey='stack:header'></Trans></h2>
