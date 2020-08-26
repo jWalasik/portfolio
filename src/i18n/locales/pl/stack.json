@@ -8,7 +8,8 @@
       "Potrafię sprawnie posługiwać się menadżerami NPM i Yarn, oraz skonfigurować Webpacka."
     ],
     "frontend": [
-      "My main area of expertise is React, I've tried it in every flavor: Browser, SSR, Native and keep up with all the latest features (Hooks, Suspense, Lazy-Loading). In regard to Design I'm experienced with a wide variety of options. While I prefer CSS-in-JS like Styled-Components, I'm perfectly fine with SASS or templating engines such as Handlebars or EJS. I adhere to semantic HTML5, BEM naming conventions and Accessibility"
+      "Moim głównym obszarem zainteresowań jest React. Wykorzystywałem go na wszystkie sposoby: CSR, SSR, Native. Staram się być na bierząco z dodawanymi funkcjonalnościami i popularnymi bibliotekami. np. Hooks, Suspense, Redux, i18n.",
+      "W odniesieniu do designu, potrafię korzystać z szerokiego wachlarza opcji. Chociaż preferuję CSS-w-JS jak np. Styled-Components, to równie dobrze radze sobie z Sass i silnikami szablonów jak EJS. Zawsze staram się trzymać zasad sematycznego HTML5, Accessibility i konwencji BEM. "
     ],
     "backend": [
       "Moja wiedza z zakresu node.js, pozwala mi na pisanie wydajnych serwerów oraz rozwiązywanie kompleksowych problemów.", 
@@ -20,8 +21,6 @@
       "W zależności od potrzeb jestem w stanie budować i utrzymywać bazy danych SQL jak i noSQL.",
       "Z nie relacyjnych baz danych najlepiej czuje się pracując w MongoDB + Mongoose. Dla baz relacyjnych używałem MySQL wraz z biblioteka Sequelize.", "Oprócz tego świetnie pracowało mi się z platformą Firebase."
     ],
-    "other": {
-
-    }
+    "other": []
   }
 }
