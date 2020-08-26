@@ -8,8 +8,8 @@
       "github": "https://github.com/elPaleniozord/skyAtlas",
       "live": "https://elpaleniozord.github.io/skyAtlas/",
       "description": {
-        "short": "skyAtlas is a progressive web application for stargazing enthusiasts, helping to indentify and observe celestial objects in the sky.",
-        "long": "Learn about the history, mythology and science as you explore Milky Way. Presented with rich graphics and multitude of interesting information.",
+        "short": "skyAtlas to progresywna aplikacja webowa dla entuzjastów astronomii. Pomaga w identyfikacji i obserwacji ciał niebieskich na nocnym niebie.",
+        "long": "Dowiedz się więcej na temat historii, mitologii i nauki ekslorując Drogę Mleczną. ",
         "features": [
           "Stars, planets and constellatons in real time!",
           "Huge database of 119,617 stars, with precise location, magnitude and spectrum.", 

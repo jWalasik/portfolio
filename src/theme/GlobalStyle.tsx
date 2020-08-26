@@ -1,4 +1,3 @@
-import { format } from "path";
 import {createGlobalStyle} from 'styled-components'
 import { ThemeType } from './Theme'
 
@@ -25,6 +24,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     background-color: ${({theme}) => theme.color.bgMain};
     font-family: ${({theme}) => theme.font.fontBody};
     overflow-x: hidden;
+    color: ${({theme}) => theme.color.offwhite};
   }
 `
 

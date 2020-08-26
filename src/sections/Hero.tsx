@@ -12,11 +12,10 @@ const Hero = () => {
       </h1>
       
       <div>
-      <h2>WEB DEVELOPER</h2>
-      <p>in training</p>
+        <h2>WEB DEVELOPER</h2>
+        <p>in training</p>
       </div>
-      
-      
+            
       <Socials />
     </HeroWrapper>
   )
@@ -31,7 +30,7 @@ const HeroWrapper = styled.section`
   align-items: center;
 
   h1 {
-    width: 60%;
+    width: 50%;
     min-width: 600px;
   }
 
