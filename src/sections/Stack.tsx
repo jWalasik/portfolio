@@ -11,7 +11,6 @@ const Stack = () => {
     t<Techs>('techs', {returnObjects: true})
   )
   .map((tech, i)=>{
-    console.log(tech)
     return (
       <div key={i}>
         <h3>{tech[0]}</h3>

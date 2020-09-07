@@ -1,17 +1,19 @@
-import React, { useEffect } from 'react'
-
+import React, {useState, useEffect } from 'react'
+interface refList {
+  [key: string]: any
+}
 type ContextProps = {
   addRef: any,
-  refList: object,
+  refList: refList,
   scrollTo: any
 }
 
 export const ScrollContext = React.createContext<Partial<ContextProps>>({})
 
 export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
-  let refList = {}
+  let refList: refList = {}
   useEffect(()=>{
-    document.addEventListener('scroll', debounce(handleScroll, 100, false), true)
+    document.addEventListener('scroll', debounce(handleScroll, 50, false), true)
 
     return () => document.removeEventListener('scroll', handleScroll, true);
   }, [])
@@ -22,12 +24,14 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   
   const addRef = (id: string) => {
     const ref = React.createRef<HTMLDivElement>()
+
     refList = {...refList, [id]: ref}
     return ref
   }
 
-  const scrollTo = (id: string) => {
-    console.log('scroll to', id)
+  const scrollTo = (e: {target: HTMLElement}) => {
+    const target = refList[e.target.id]
+    window.scrollTo(0, target.current.offsetTop)
   }
 
   const debounce = (func: any, time: number, immediate:boolean) => {

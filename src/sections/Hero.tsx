@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import header from './images/header.svg'
 import {ReactComponent as Title} from '../assets/title.svg'
 import Socials from '../components/Socials'
 
@@ -21,7 +20,7 @@ const Hero = () => {
   )
 }
 
-const HeroWrapper = styled.section`
+const HeroWrapper = styled.header`
   height: 100vh;
   color: ${({theme}) => theme.color.neon};
   display: flex;

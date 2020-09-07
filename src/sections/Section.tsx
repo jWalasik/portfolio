@@ -5,6 +5,8 @@ import { ScrollContext } from '../ctx/Scroll'
 const SectionWrapper = styled.section`
   border: 1px solid blue;
   min-height: 0;
+  display: flex;
+  flex-direction: column;
 `
 
 const Section = ({id, children} : {id: string, children: React.ReactNode}) => {
