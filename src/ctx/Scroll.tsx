@@ -1,8 +1,9 @@
-import React, {useState, useEffect } from 'react'
+import React, {useState, useEffect, useRef, MutableRefObject } from 'react'
 interface refList {
   [key: string]: any
 }
 type ContextProps = {
+  active: MutableRefObject<string>,
   addRef: any,
   refList: refList,
   scrollTo: any
@@ -12,6 +13,8 @@ export const ScrollContext = React.createContext<Partial<ContextProps>>({})
 
 export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   let refList: refList = {}
+  let active = useRef('hero')
+  const [activeLink, setActiveLink] = useState()
   useEffect(()=>{
     document.addEventListener('scroll', debounce(handleScroll, 50, false), true)
 
@@ -19,7 +22,16 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   }, [])
 
   const handleScroll = () => {
-    console.log('scrolling', refList)
+    Object.entries(refList).forEach((section)=>{
+      const rect = section[1].current.getBoundingClientRect()
+      if(rect.top - window.innerHeight/2 <= 0 && rect.bottom - window.innerHeight/2 >= 0 ) {
+        console.log(section[0], 'is in viewport')
+      }
+      
+    })    
+  }
+  const isInViewport = (offset: number = 0) => {
+    
   }
   
   const addRef = (id: string) => {
@@ -32,6 +44,7 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   const scrollTo = (e: {target: HTMLElement}) => {
     const target = refList[e.target.id]
     window.scrollTo(0, target.current.offsetTop)
+    console.log(target)
   }
 
   const debounce = (func: any, time: number, immediate:boolean) => {
@@ -54,7 +67,8 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
     <ScrollContext.Provider value={{
       addRef,
       refList,
-      scrollTo      
+      scrollTo,
+      active    
     }}>
       {children}
     </ScrollContext.Provider> 

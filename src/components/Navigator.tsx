@@ -4,24 +4,28 @@ import { Trans } from 'react-i18next'
 import {ScrollContext} from '../ctx/Scroll'
 
 const NavWrapper = styled.nav`
-
+  cursor: pointer;
+  height: 50px;
+  
+  
+  .active {
+    color: red;
+  }
 `
 
 const Navigator = () => {
   const ctx = useContext(ScrollContext)
-  useEffect(()=>{
-  }, [ctx])
 
   return (
     <NavWrapper>
       <ul>
-        <li onClick={ctx.scrollTo} id='projects'><Trans i18nKey='nav:projects' >X</Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='projects'><Trans i18nKey='nav:projects' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} id='about'><Trans i18nKey='nav:about' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='about'><Trans i18nKey='nav:about' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} id='stack'><Trans i18nKey='nav:stack' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='stack'><Trans i18nKey='nav:stack' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} id='contact'><Trans i18nKey='nav:contact' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='contact'><Trans i18nKey='nav:contact' ></Trans></li>
       </ul>
     </NavWrapper>
   )
