@@ -15,17 +15,19 @@ const NavWrapper = styled.nav`
 
 const Navigator = () => {
   const ctx = useContext(ScrollContext)
-
+  useEffect(()=>{
+    console.log(ctx)
+  })
   return (
     <NavWrapper>
       <ul>
-        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='projects'><Trans i18nKey='nav:projects' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'projects' ? 'active' : undefined} id='projects'><Trans i18nKey='nav:projects' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='about'><Trans i18nKey='nav:about' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'about' ? 'active' : undefined} id='about'><Trans i18nKey='nav:about' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='stack'><Trans i18nKey='nav:stack' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'stack' ? 'active' : undefined} id='stack'><Trans i18nKey='nav:stack' ></Trans></li>
 
-        <li onClick={ctx.scrollTo} className={ctx.active?.current === 'projects' ? 'active' : undefined} id='contact'><Trans i18nKey='nav:contact' ></Trans></li>
+        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'contact' ? 'active' : undefined} id='contact'><Trans i18nKey='nav:contact' ></Trans></li>
       </ul>
     </NavWrapper>
   )

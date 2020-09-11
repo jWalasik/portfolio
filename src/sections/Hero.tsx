@@ -2,21 +2,24 @@ import React from 'react'
 import styled from 'styled-components'
 import {ReactComponent as Title} from '../assets/title.svg'
 import Socials from '../components/Socials'
+import Section from './Section'
 
 const Hero = () => {
   return (
-    <HeroWrapper id='hero'>
-      <h1>
-        <Header />
-      </h1>
-      
-      <div>
-        <h2>WEB DEVELOPER</h2>
-        <p>in training</p>
-      </div>
-            
-      <Socials />
-    </HeroWrapper>
+    <Section id='hero'>
+      <HeroWrapper>
+        <h1>
+          <Header />
+        </h1>
+        
+        <div>
+          <h2>WEB DEVELOPER</h2>
+          <p>in training</p>
+        </div>
+              
+        <Socials />
+      </HeroWrapper>
+    </Section>    
   )
 }
 
