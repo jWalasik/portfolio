@@ -1,7 +1,9 @@
 import React, {useState, useEffect, useRef, MutableRefObject, RefObject } from 'react'
+
 interface refList {
-  [key:number]: any
-  
+  current: {
+    [string:string]: any
+  }
 }
 
 type ContextProps = {
@@ -14,7 +16,7 @@ type ContextProps = {
 export const ScrollContext = React.createContext<Partial<ContextProps>>({})
 
 export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
-  const refList = useRef({})
+  const refList: refList = useRef({})
   const [activeLink, setActiveLink] = useState('hero')
   
   useEffect(()=>{
@@ -32,7 +34,6 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
         setActiveLink(id)
       }      
     })
-    console.log(first)
   }
   const isInViewport = (offset: number = 0) => {
     
@@ -45,9 +46,8 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   }
 
   const scrollTo = (e: {target: HTMLElement}) => {
-    // const target = refList[e.target.id]
-    // window.scrollTo(0, target.current.offsetTop)
-    // console.log(target)
+    const target = refList.current[e.target.id]
+    window.scrollTo(0, target.current.offsetTop)
   }
 
   const debounce = (func: any, time: number, immediate:boolean) => {
@@ -65,7 +65,7 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
       if (callNow) func.apply(context, args);
     };
   }
-  console.log(refList)
+
   return (
     <ScrollContext.Provider value={{
       addRef,
