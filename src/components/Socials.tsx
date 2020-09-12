@@ -18,11 +18,18 @@ const Socials = () => {
 
 const SocialsWrapper = styled.div`
   display: flex;
+  margin-top: -15vh;
   
   svg {
+    margin: ${({theme})=>theme.spacing.s};
     width: 44px;
     height: 44px;
-    fill: ${({theme})=> theme.color.neon}
+    fill: ${({theme})=> theme.color.offwhite};
+
+    &:hover{
+      fill: ${({theme})=> theme.color.neon};
+      cursor: pointer;
+    }
   }
 `
 

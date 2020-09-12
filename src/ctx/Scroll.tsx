@@ -35,9 +35,6 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
       }      
     })
   }
-  const isInViewport = (offset: number = 0) => {
-    
-  }
   
   const addRef = (id: string) => {
     const ref = React.createRef<RefObject<{}>>()

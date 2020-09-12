@@ -12,7 +12,7 @@ const Hero = () => {
           <Header />
         </h1>
         
-        <div>
+        <div className="subtitle">
           <h2>WEB DEVELOPER</h2>
           <p>in training</p>
         </div>
@@ -34,10 +34,26 @@ const HeroWrapper = styled.header`
   h1 {
     width: 50%;
     min-width: 600px;
+    margin-top: calc(35vh - 100px);
+  }
+
+  .subtitle {
+    margin-top: -25vh;
+    color: ${({theme})=>theme.color.offwhite};    
+
+    h2 {
+      font-weight: 200;
+      font-size: 7vh;
+      font-family: ${({theme})=>theme.font.fontSpecial};
+      margin: 0;
+    }
   }
 
   p {
-    color: gray
+    font-size: 20px;
+    color: #a7a8a7;
+    margin: 0;
+    float: right;
   }
 `
 const Header = styled(Title)`

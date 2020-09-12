@@ -5,23 +5,35 @@ import { useTranslation } from 'react-i18next'
 import Navigator from './Navigator'
 
 const HeaderWrapper = styled.header`
-  border: 1px solid green;
-  background-color: gray;
+  background-color: ${({theme}) => theme.color.bgMain};
   position: fixed;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
   width: 100%;
+
+  span {
+    margin-left:  ${({theme}) => theme.spacing.s};
+    font-size: ${({theme}) => theme.fontSize.body};
+  }
 `
 
 const ButtonWrapper = styled.button`
-  
+  height: 44px;
+  background-color: ${({theme}) => theme.color.bgMain};
+  color: ${({theme}) => theme.color.neon};
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  margin-right:  ${({theme}) => theme.spacing.s};
 `
 
 const Header = () => {
   const {i18n} = useTranslation()
   return (
     <HeaderWrapper >
-      jWalasik
+      <span>jWalasik</span>
+      
 
       <Navigator />
       

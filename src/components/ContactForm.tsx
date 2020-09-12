@@ -71,7 +71,7 @@ const ContactForm = () => {
           value={values.message}
           name='message'
           type='text'
-          placeholder='What... is your favourite colour? '
+          placeholder='What... is the airspeed velocity of an unladen swallow? '
           required
         />
       </div>

@@ -24,7 +24,7 @@ const theme = {
     fontSpecial: `'Titillium Web', sans-serif`
   },
   fontSize: {
-    caption: '1rem',
+    caption: '3.3rem',
     body: '1.62rem',
     subtitle: '2.62rem',
     headline: '4.2464rem'
