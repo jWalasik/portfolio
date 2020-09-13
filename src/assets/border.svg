@@ -1,0 +1,10 @@
+<svg preserveAspectRatio="none" class="svg-bg" viewBox="0 0 300 100">
+  <defs>
+  <linearGradient id="gradient" x1="55%" y1="55%" x2="75%" y2="75%" >
+      <stop offset="0%"   stop-color="#222522"/>
+      <stop offset="100%" stop-color="#28ff28"/>
+    </linearGradient>
+  </defs>
+  <path class="path" d="M300 0 L300 80 L285 100  L0 100" />
+  <path class="path top" d="M300 0 L300 80 L285 100  L0 100" />
+</svg>

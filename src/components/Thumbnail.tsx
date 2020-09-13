@@ -11,6 +11,10 @@ const Thumbnail = ({url}: {url: string}) => {
 
 const ThumbnailWrapper = styled.div`
   border: 1px solid red;
+  height: 100px;
+  width: 90%;
+  margin: auto;
+
 `
 
 export default Thumbnail

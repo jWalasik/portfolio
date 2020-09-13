@@ -22,7 +22,8 @@ const Stack = () => {
   return (
     <Section id='stack'>
       <h2><Trans i18nKey='stack:header'></Trans></h2>
-      <Trans i18nKey='stack:description'></Trans>
+      <p><Trans i18nKey='stack:description'></Trans></p>
+      
       {techs}
     </Section>
   )

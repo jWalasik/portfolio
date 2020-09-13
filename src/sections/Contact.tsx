@@ -9,25 +9,21 @@ const Contact = () => {
   return (
     <Section id='contact'>
       <h2><Trans i18nKey='contact:header'></Trans></h2>
+      <p><Trans i18nKey='contact:description'></Trans></p>
 
-      <Trans i18nKey='contact:description'></Trans>
+      <div>
+        <StatusWrapper>
+          CLOSED FOR JOB OFFERS
+        </StatusWrapper>
 
-      <StatusWrapper>
-        OPEN FOR JOB OFFERS
-      </StatusWrapper>
-
-      <ContactForm />
-      
+        <ContactForm />
+      </div>     
     </Section>
   )
 }
 
 const StatusWrapper = styled.div`
-
-`
-
-const FormWrapper = styled.form`
-
+  color: ${({theme})=>theme.color.negative};
 `
 
 export default Contact

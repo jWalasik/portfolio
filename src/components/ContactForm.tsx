@@ -76,13 +76,20 @@ const ContactForm = () => {
         />
       </div>
 
-      <button>Send Message</button>
+      <ButtonWrapper>Send Message</ButtonWrapper>
     </ContactFormWrapper>
   )
 }
 
 const ContactFormWrapper = styled.form`
 
+`
+const ButtonWrapper = styled.button`
+  color: ${({theme})=>theme.color.offwhite};
+  background: ${({theme})=>theme.color.bgAction};
+  width: 300px;
+  height: 50px;
+  border: none;
 `
 
 export default ContactForm

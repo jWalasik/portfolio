@@ -12,10 +12,10 @@ const Hero = () => {
           <Header />
         </h1>
         
-        <div className="subtitle">
+        <SubtitleWrapper>
           <h2>WEB DEVELOPER</h2>
           <p>in training</p>
-        </div>
+        </SubtitleWrapper>
               
         <Socials />
       </HeroWrapper>
@@ -24,7 +24,7 @@ const Hero = () => {
 }
 
 const HeroWrapper = styled.header`
-  height: 100vh;
+  height: calc(100vh);
   color: ${({theme}) => theme.color.neon};
   display: flex;
   flex-direction: column;
@@ -34,19 +34,20 @@ const HeroWrapper = styled.header`
   h1 {
     width: 50%;
     min-width: 600px;
-    margin-top: calc(35vh - 100px);
+    margin-top: 15vh;
   }
+`
+const SubtitleWrapper = styled.div`
+  margin-top: -35vh;
+  margin-bottom: -20vh;
 
-  .subtitle {
-    margin-top: -25vh;
-    color: ${({theme})=>theme.color.offwhite};    
-
-    h2 {
-      font-weight: 200;
-      font-size: 7vh;
-      font-family: ${({theme})=>theme.font.fontSpecial};
-      margin: 0;
-    }
+  h2 {
+    font-weight: 200;
+    font-size: 7vh;
+    font-family: ${({theme})=>theme.font.fontSpecial};
+    letter-spacing: 7px;
+    color: ${({theme})=>theme.color.offwhite};
+    margin: 0;
   }
 
   p {
@@ -56,6 +57,7 @@ const HeroWrapper = styled.header`
     float: right;
   }
 `
+
 const Header = styled(Title)`
   text-anchor: middle;
   fill: ${({theme}) => theme.color.bgMain};

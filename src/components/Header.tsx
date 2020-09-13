@@ -4,6 +4,21 @@ import { useTranslation } from 'react-i18next'
 
 import Navigator from './Navigator'
 
+const Header = () => {
+  const {i18n} = useTranslation()
+  return (
+    <HeaderWrapper >
+      <span>jWalasik</span>
+
+      <Navigator />
+      
+      <ButtonWrapper onClick={()=>i18n.changeLanguage(i18n.language==='en'?'pl':'en')} >
+        {i18n.language==='en'?'PL':'EN'}
+      </ButtonWrapper>
+    </HeaderWrapper>
+  )
+}
+
 const HeaderWrapper = styled.header`
   background-color: ${({theme}) => theme.color.bgMain};
   position: fixed;
@@ -11,6 +26,7 @@ const HeaderWrapper = styled.header`
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  top: 0;
 
   span {
     margin-left:  ${({theme}) => theme.spacing.s};
@@ -27,21 +43,5 @@ const ButtonWrapper = styled.button`
   cursor: pointer;
   margin-right:  ${({theme}) => theme.spacing.s};
 `
-
-const Header = () => {
-  const {i18n} = useTranslation()
-  return (
-    <HeaderWrapper >
-      <span>jWalasik</span>
-      
-
-      <Navigator />
-      
-      <ButtonWrapper onClick={()=>i18n.changeLanguage(i18n.language==='en'?'pl':'en')} >
-        {i18n.language==='en'?'PL':'EN'}
-      </ButtonWrapper>
-    </HeaderWrapper>
-  )
-}
 
 export default Header

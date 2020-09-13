@@ -11,6 +11,7 @@ const theme = {
 
     offwhite: '#f7f7f7',
     neon: '#28ff28',
+    negative: '#f04147',
 
     action: '#28ff28',
     actionDark: `darken(${function(this: any) {return this.color.action}}, 25%)`,
@@ -24,8 +25,8 @@ const theme = {
     fontSpecial: `'Titillium Web', sans-serif`
   },
   fontSize: {
-    caption: '3.3rem',
-    body: '1.62rem',
+    caption: '.72rem',
+    body: '1.2rem',
     subtitle: '2.62rem',
     headline: '4.2464rem'
   },

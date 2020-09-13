@@ -18,8 +18,7 @@ const Socials = () => {
 
 const SocialsWrapper = styled.div`
   display: flex;
-  margin-top: -15vh;
-  
+    
   svg {
     margin: ${({theme})=>theme.spacing.s};
     width: 44px;

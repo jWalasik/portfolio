@@ -14,7 +14,8 @@ const Projects = () => {
   return (
     <Section id='projects'>
       <h2><Trans i18nKey='projects:header'></Trans></h2>
-      <Trans i18nKey='projects:description'></Trans>
+      <p><Trans i18nKey='projects:description'></Trans></p>
+      
       {list}
     </Section>
   )
