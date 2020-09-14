@@ -62,7 +62,7 @@ const Header = styled(Title)`
   text-anchor: middle;
   fill: ${({theme}) => theme.color.bgMain};
   stroke: ${({theme}) => theme.color.neon};
-  stroke-width: 0.01;
+  stroke-width: 0.001;
   font-size: 34px;
   font-family: 'Titillium Web', sans-serif;
   animation: draw 2s ease-in-out infinite;

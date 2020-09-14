@@ -14,7 +14,7 @@ function App() {
   React.useEffect(()=>{
     setLoading(false)
   })
-  if(loading) return <Loader size={150}  />
+  if(loading) return <Loader />
   return (
       <Suspense fallback={Loader}>
         <Filters />

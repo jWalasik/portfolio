@@ -19,18 +19,21 @@ interface Project {
 
 const Card = ({project}: {project: any}) => {
   const [collapsed, setCollapsed] = useState(true)
-  console.log(project)
-  return (
-    <CardWrapper onClick={()=>setCollapsed(!collapsed)}>
-      <BorderWrapper></BorderWrapper>
-      
-      <h3>{project.title}</h3>
 
-      <IconsWrapper>
-        <a href={project.github}><Git /></a>
-        <a href={project.live}><Live /></a>
-      </IconsWrapper>
-      <div><Border /></div>
+  return (
+    <CardWrapper onClick={()=>setCollapsed(!collapsed)} className={collapsed ? '' : 'active'}>
+
+      <TopWrapper>
+        <h3>{project.title}</h3>
+
+        <IconsWrapper>
+          <a href={project.github}><Git /></a>
+          <a href={project.live}><Live /></a>
+        </IconsWrapper>
+      </TopWrapper>
+
+      <div className="bevel top"></div>
+
       <DetailsWrapper>
       {
         collapsed
@@ -49,25 +52,41 @@ const Card = ({project}: {project: any}) => {
       </DetailsWrapper>
       
       <StackWrapper>{project.stack}</StackWrapper>
-      <div><Border/></div>
+      <div className="bevel bottom"></div>
     </CardWrapper>
   )
 }
 
 const CardWrapper = styled.div`
-  width: 85%;
+.active {
+  transition: all 1s ease-in;
+  border: 3px solid red;
+}
   margin: ${({theme})=>theme.spacing.s};
   position: relative;
-  display: grid;
-  grid-template-columns: 5% 45% 30% 20%;
-  grid-template-rows: 2.5rem auto 2.5rem;
+  display: flex;
+  flex-direction: column;
   transition: all 1s ease-in;
 
+  width: 85%;
+
+  border: 1px solid red;
+
   h3 {
-    grid-area: 1/2/1/3;
     font-family: ${({theme})=>theme.font.fontSpecial};
     font-weight: 300;
     align-self: center;
+  }
+
+  .bevel {
+    border: 2px solid green;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+  }
+  .bottom {
+    bottom: 0;
+    right: 0;
   }
 `
 
@@ -75,7 +94,7 @@ const BorderWrapper = styled(Border)`
   position:absolute;
   width: 100%;
   height: 100%;
-  stroke-width: .75;
+  stroke-width: 1;
   fill: transparent;
   overflow: visible;
   stroke: url(#gradient);
@@ -85,12 +104,10 @@ const BorderWrapper = styled(Border)`
   .top {
     transform: scale(-.6,-.6);
     transform-origin: 38% 38%;
-    stroke-width: 1.25;
   }
 `
 
 const IconsWrapper = styled.div`
-  grid-area: 1/4/2/5;
   margin-left: auto;
   svg {
     height: 44px;
@@ -103,8 +120,8 @@ const IconsWrapper = styled.div`
   }
 `
 const DetailsWrapper = styled.div`
-  grid-area: 2/2/3/5;
   transition: all 1s ease-in;
+  border: 1px solid yellow;
 
   .case {
     text-decoration: none;
@@ -112,11 +129,17 @@ const DetailsWrapper = styled.div`
   }
 `
 const StackWrapper = styled.div`
-  grid-area: 3/3/3/5;
   padding: 0 15% 0 15%;
   margin-left: auto;
   color: ${({theme})=>theme.color.offwhite};
   background-color: black;
   clip-path: polygon(23px 0%, 100% 0%, calc(100% - 23px) 100%, 0% 100%);
+`
+
+const TopWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
 `
 export default Card

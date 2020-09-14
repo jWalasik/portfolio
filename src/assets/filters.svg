@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" display="none">
   <defs>
     <filter id="glow">
-      <feGaussianBlur class="blur" result="coloredBlur" stdDeviation="4"></feGaussianBlur>
+      <feGaussianBlur class="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
       <feMerge>
         <feMergeNode in="coloredBlur"></feMergeNode>
         <feMergeNode in="coloredBlur"></feMergeNode>

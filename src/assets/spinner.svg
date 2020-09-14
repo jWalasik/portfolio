@@ -1,0 +1,8 @@
+<svg className="loader-svg" 
+  viewBox="0 0 129.78 150.37"
+  preserveAspectRatio="none"
+    
+>
+  <path className="hexagon" d="M64.9519052838329 0 L129.9038105676658 37.5 L129.9038105676658 112.5 L64.9519052838329 150 L0 112.5 L0 37.5Z" />
+  <path className="spinner" d="M64.9519052838329 0 L129.9038105676658 37.5 L129.9038105676658 112.5 L64.9519052838329 150 L0 112.5 L0 37.5Z" />
+</svg>
