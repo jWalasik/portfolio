@@ -5,24 +5,23 @@ import {ReactComponent as Spinner} from '../assets/spinner.svg'
 const Loader = ({children}: {children?: React.ReactNode}) => {
   return (
     <LoaderWrapper>
-      <Spinner>
+      <Spinner />      
+
       {children}
-      </Spinner>
-      
     </LoaderWrapper>
   )
 }
 
 const LoaderWrapper = styled.div`
-  
+  width: 100px;
+  height: 100px;
+  position: relative;
 
   svg {
-    width: 100%;
-    height: 100%;
     position: absolute;
     fill: transparent;
-    stroke: red;
-    stroke-width: 2;
+    stroke: #28ff28;
+    stroke-width: 4;
     overflow: visible;
   }
 `

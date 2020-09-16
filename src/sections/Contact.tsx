@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Section from './Section'
 import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
@@ -10,6 +10,7 @@ import {ReactComponent as Facebook} from '../assets/icons/facebook.svg'
 
 const Contact = () => {
   const {t} = useTranslation('contact')
+  const [formActive, setFormActive] = useState(false)
   return (
     <Section id='contact'>
       <h2><Trans i18nKey='contact:header'></Trans></h2>
@@ -17,8 +18,9 @@ const Contact = () => {
 
       <IconsWrapper>
         <Loader><Facebook className="icon"/></Loader>
-        <Mail />
-        <Linkedin />
+        
+        <Loader><Mail className="icon"/></Loader>
+        <Loader><Linkedin className="icon"/></Loader>
       </IconsWrapper>
 
       <ContactForm />
@@ -41,10 +43,12 @@ const IconsWrapper = styled.div`
   width: 100%;
   
   .icon {
-    height: 44px;
-    width: 44px;
+    width: 80%;
+    height: 80%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     fill: ${({theme})=>theme.color.neon};
-    width: 100%;
   }
 `
 
