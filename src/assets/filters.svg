@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" display="none">
-  <defs>
+  <def>
     <filter id="glow">
       <feGaussianBlur class="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
       <feMerge>
@@ -13,5 +13,5 @@
       <stop offset="0%"   stop-color="#28ff28"/>
       <stop offset="100%" stop-color="#2bfa20"/>
     </linearGradient>
-  </defs>
+  </def>
 </svg>

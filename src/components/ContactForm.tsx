@@ -20,12 +20,12 @@ const ContactForm = () => {
   }
   return (
     <ContactFormWrapper onSubmit={formSubmit}>
-      <address>
+      <AddressWrapper>
         <p>recipient:</p>
-        <a href="mailto:jacekwalasik89@gmail.com">>jacekwalasik89@gmail.com</a>
-      </address>
+        <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
+      </AddressWrapper>
       
-      <div>
+      <InputWrapper>
         <label>from:</label>
         <input 
           id='email'
@@ -36,9 +36,9 @@ const ContactForm = () => {
           placeholder='Your Email Address'
           required
         />
-      </div>
+      </InputWrapper>
 
-      <div>
+      <InputWrapper>
         <label>name:</label>
         <input 
           id='name'
@@ -48,9 +48,9 @@ const ContactForm = () => {
           type='text'
           placeholder='What... is your name?'
         />
-      </div>
+      </InputWrapper>
 
-      <div>
+      <InputWrapper>
         <label>subject:</label>
         <input 
           id='subject'
@@ -61,9 +61,9 @@ const ContactForm = () => {
           placeholder='What... is your quest?'
           required
         />
-      </div>
+      </InputWrapper>
 
-      <div>
+      <InputWrapper>
         <label>message:</label>
         <input 
           id='message'
@@ -74,22 +74,50 @@ const ContactForm = () => {
           placeholder='What... is the airspeed velocity of an unladen swallow? '
           required
         />
-      </div>
+      </InputWrapper>
 
-      <ButtonWrapper>Send Message</ButtonWrapper>
+      <ButtonWrapper>SEND MESSAGE</ButtonWrapper>
     </ContactFormWrapper>
   )
 }
 
 const ContactFormWrapper = styled.form`
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
 `
+const InputWrapper = styled.div`
+  border: 1px solid ${({theme})=>theme.color.neon}
+`
+
+const AddressWrapper = styled.address`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  a {
+    text-decoration: none;
+    color: ${({theme})=>theme.color.neon}
+  }  
+`
+
 const ButtonWrapper = styled.button`
+  font-family: ${({theme})=>theme.font.fontSpecial};
+  font-size: ${({theme})=>theme.fontSize.body};
+  font-weight: 600;
   color: ${({theme})=>theme.color.offwhite};
-  background: ${({theme})=>theme.color.bgAction};
-  width: 300px;
+  background: ${({theme})=>theme.color.bgMain};
+  max-width: 300px;
   height: 50px;
-  border: none;
+  border: 2px solid ${({theme})=>theme.color.neon};
+  border-radius: 5px;
+  
+  :hover{
+    background: ${({theme})=>theme.color.neon};
+    color: ${({theme})=>theme.color.bgMain};
+  }
 `
 
 export default ContactForm

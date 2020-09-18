@@ -19,11 +19,12 @@ const Contact = () => {
       <IconsWrapper>
         <Loader><Facebook className="icon"/></Loader>
         
-        <Loader><Mail className="icon"/></Loader>
+        <button onClick={()=>setFormActive(!formActive)}><Loader><Mail className="icon"/></Loader></button>
+
         <Loader><Linkedin className="icon"/></Loader>
       </IconsWrapper>
 
-      <ContactForm />
+      {!formActive && <ContactForm /> }
 
       <StatusWrapper>
         CLOSED FOR JOB OFFERS
@@ -41,13 +42,16 @@ const IconsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   width: 100%;
+  min-height: 30vh;
+  
+  button {
+    background-color: ${({theme})=>theme.color.bgMain};
+    border: none;
+  }
   
   .icon {
-    width: 80%;
-    height: 80%;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    position: absolute;
+    width: 70%;
     fill: ${({theme})=>theme.color.neon};
   }
 `
