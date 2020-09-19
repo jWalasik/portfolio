@@ -14,7 +14,7 @@ const ContactForm = () => {
     e.preventDefault()
     console.log('form submit')
   }
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target
     setValues({...values, [name]:value})
   }
@@ -65,12 +65,11 @@ const ContactForm = () => {
 
       <InputWrapper>
         <label>message:</label>
-        <input 
+        <textarea
           id='message'
           onChange={handleChange}
           value={values.message}
           name='message'
-          type='text'
           placeholder='What... is the airspeed velocity of an unladen swallow? '
           required
         />
@@ -89,7 +88,29 @@ const ContactFormWrapper = styled.form`
 
 `
 const InputWrapper = styled.div`
-  border: 1px solid ${({theme})=>theme.color.neon}
+  display: flex;
+  background-color: ${({theme})=>theme.color.shadow};
+  border-bottom: 1px solid ${({theme})=>theme.color.bgAction};
+
+  label {
+  }
+
+  input {
+    color: ${({theme})=>theme.color.offwhite};
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    text-align: end;
+    font-size: ${({theme})=>theme.fontSize.body};
+
+    :invalid {
+      color: ${({theme})=>theme.color.negative};
+    }
+  }
+
+  textarea {
+    width: 100%;
+  }
 `
 
 const AddressWrapper = styled.address`

@@ -3,6 +3,10 @@ import { createGlobalStyle, ThemeProvider, keyframes } from 'styled-components'
 
 export type ThemeType = typeof theme
 
+const colors = {
+  bgMain: '#222522',
+}
+
 const theme = {
   color: {
     bgMain: '#222522',
@@ -14,7 +18,7 @@ const theme = {
     negative: '#f04147',
 
     action: '#28ff28',
-    actionDark: `darken(${function(this: any) {return this.color.action}}, 25%)`,
+    actionDark: `darken(bgMain, 25%)`,
     actionLight: `lighten(${function(this: any) {return this.color.action}}, 15%)`,
 
     shadow: `darken(${function(this: any) {return this.color.action}}, 60%)`,

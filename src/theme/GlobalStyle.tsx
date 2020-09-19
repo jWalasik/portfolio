@@ -26,6 +26,14 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     overflow-x: hidden;
     color: ${({theme}) => theme.color.offwhite};
   }
+
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+    transition: background-color 5000s;
+    -webkit-text-fill-color: #f7f7f7 !important;
+  }
 `
 
 export default GlobalStyle
