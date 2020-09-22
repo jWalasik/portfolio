@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import styled from 'styled-components'
+
 const initialValues = {
   email: '',
   message: '',
@@ -9,24 +10,25 @@ const initialValues = {
 }
 const ContactForm = () => {
   const [values, setValues] = useState(initialValues || {})
-  const [errors, setErrors] = useState({})
+
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     console.log('form submit')
   }
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target
+    const error : any = document.getElementById(name)
+    console.log(error.validationMessage)
     setValues({...values, [name]:value})
   }
   return (
     <ContactFormWrapper onSubmit={formSubmit}>
       <AddressWrapper>
-        <p>recipient:</p>
         <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
       </AddressWrapper>
       
-      <InputWrapper>
-        <label>from:</label>
+      <InputWrapper value={values.email}>
+        <label htmlFor='email'>Email:</label>
         <input 
           id='email'
           onChange={handleChange}
@@ -38,8 +40,8 @@ const ContactForm = () => {
         />
       </InputWrapper>
 
-      <InputWrapper>
-        <label>name:</label>
+      <InputWrapper value={values.name}>
+        <label htmlFor='name'>Name:</label>
         <input 
           id='name'
           onChange={handleChange}
@@ -50,8 +52,8 @@ const ContactForm = () => {
         />
       </InputWrapper>
 
-      <InputWrapper>
-        <label>subject:</label>
+      <InputWrapper value={values.subject}>
+        <label htmlFor='subject'>Subject:</label>
         <input 
           id='subject'
           onChange={handleChange}
@@ -63,10 +65,11 @@ const ContactForm = () => {
         />
       </InputWrapper>
 
-      <InputWrapper>
-        <label>message:</label>
+      <InputWrapper value={values.message}>
+        <label htmlFor='message'>Message:</label>
         <textarea
           id='message'
+          minLength={10}
           onChange={handleChange}
           value={values.message}
           name='message'
@@ -81,35 +84,61 @@ const ContactForm = () => {
 }
 
 const ContactFormWrapper = styled.form`
-  height: 80vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 5px;
 `
-const InputWrapper = styled.div`
-  display: flex;
-  background-color: ${({theme})=>theme.color.shadow};
-  border-bottom: 1px solid ${({theme})=>theme.color.bgAction};
-
-  label {
+const active = `
+  top: -20px;
+  font-size: 16px;
+`
+const InputWrapper = styled.div<{value: string}>`
+  width: 100%;
+  position: relative;
+  margin: 16px;
+  :focus-within{
+    label {
+      ${active}
+    }
   }
-
-  input {
-    color: ${({theme})=>theme.color.offwhite};
+ 
+  label {
+    position: absolute;
+    transition: .3s ease;
+    left: 10px;
+    top: 0;
+    font-weight: 600;
+    font-family: ${({theme})=>theme.font.fontSpecial};
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    ${props => props.value? active : ''}
+  }
+  
+  input, textarea {
     width: 100%;
-    background-color: transparent;
-    border: none;
-    text-align: end;
+    font-family: ${({theme})=>theme.font.fontBody};
     font-size: ${({theme})=>theme.fontSize.body};
+    border: 1px solid ${({theme})=>theme.color.offwhite};
+    border-radius: 5px;
+    background-color: black;
+    color: ${({theme})=>theme.color.offwhite};
+    padding: 5px;
+    text-align: end;
 
     :invalid {
-      color: ${({theme})=>theme.color.negative};
+      border: 1px solid ${({theme})=>theme.color.negative};
+    }
+    :valid {
+      border: 1px solid ${({theme})=>theme.color.neon};
     }
   }
 
   textarea {
-    width: 100%;
+    height: 25vh;
+    box-sizing: border-box;
   }
 `
 
@@ -117,6 +146,7 @@ const AddressWrapper = styled.address`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: 20px;
 
   a {
     text-decoration: none;

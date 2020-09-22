@@ -20,7 +20,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     scroll-behavior: smooth;
   }
   
-  body {
+  body, html {
     background-color: ${({theme}) => theme.color.bgMain};
     font-family: ${({theme}) => theme.font.fontBody};
     overflow-x: hidden;
