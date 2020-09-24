@@ -15,7 +15,7 @@ const Section = ({id, children} : {id: string, children: React.ReactNode}) => {
 
 const SectionWrapper = styled.section`
   border: 1px solid blue;
-  min-height: 100vh;
+
   width: 100%;
   display: flex;
   flex-direction: column;

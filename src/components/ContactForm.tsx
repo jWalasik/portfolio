@@ -90,6 +90,7 @@ const ContactFormWrapper = styled.form`
   height: 100vh;
   width: 100%;
   padding: 5px;
+  border: 4px solid ${({theme})=>theme.color.neon};
 `
 const active = `
   top: -20px;

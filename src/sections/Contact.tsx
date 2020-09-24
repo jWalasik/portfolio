@@ -4,12 +4,18 @@ import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 import ContactForm from '../components/ContactForm'
 import Loader from '../components/Loader'
-import {ReactComponent as Mail} from '../assets/icons/mail.svg'
+import EmailForm from '../components/EmailForm'
 import {ReactComponent as Linkedin} from '../assets/icons/linkedin.svg'
 import {ReactComponent as Facebook} from '../assets/icons/facebook.svg'
 
+interface Fields {
+  [key:string]: string
+}
+
 const Contact = () => {
-  const {t} = useTranslation('contact')
+  const {t, i18n} = useTranslation('contact')
+  const fields = t<Fields>('fields',{returnObjects: true})
+  
   const [formActive, setFormActive] = useState(false)
   return (
     <Section id='contact'>
@@ -19,12 +25,12 @@ const Contact = () => {
       <IconsWrapper>
         <Loader><Facebook className="icon"/></Loader>
         
-        <button onClick={()=>setFormActive(!formActive)}><Loader><Mail className="icon"/></Loader></button>
+          <Loader>
+            <EmailForm fields={fields}/>
+          </Loader>
 
         <Loader><Linkedin className="icon"/></Loader>
       </IconsWrapper>
-
-      {!formActive && <ContactForm /> }
 
       <StatusWrapper>
         CLOSED FOR JOB OFFERS
@@ -52,6 +58,7 @@ const IconsWrapper = styled.div`
   .icon {
     position: absolute;
     width: 70%;
+    max-height: 100px;
     fill: ${({theme})=>theme.color.neon};
   }
 `

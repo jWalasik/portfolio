@@ -1,9 +1,11 @@
 {
   "header":"Get in touch!",
   "description": "Im always looking for new challenges, if you have an interesting project going and could use another keyboard or simply want to say 'hi!', feel free to reach out, by using mail form below or through social media.",
-  "to": "to",
-  "from": "from",
-  "name": "name",
-  "subject": "subject",
-  "submit": "Submit"
+  "fields": {
+    "from": "From",
+    "name": "Name",
+    "subject": "Subject",
+    "message": "Message",
+    "submit": "Submit"
+  }
 }
