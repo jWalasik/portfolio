@@ -18,7 +18,7 @@ const initialValues = {
 
 const EmailForm = ({fields}: {fields: Fields}) => {
   const [formActive, setFormActive] = useState(false)
-  const [values, setValues] = useState<Fields>(initialValues || {})
+  const [values, setValues] = useState<Fields>(initialValues)
 
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -27,7 +27,6 @@ const EmailForm = ({fields}: {fields: Fields}) => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target
-    console.log('name',name,'value', value)
     setValues({...values, [name]:value})
   }
 
@@ -56,8 +55,12 @@ const EmailForm = ({fields}: {fields: Fields}) => {
 }
 
 const FormWrapper = styled.form`
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-content: center;
   top: 10vh;
+  width: 600px;
 `
 
 export default EmailForm

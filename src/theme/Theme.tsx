@@ -29,10 +29,20 @@ const theme = {
     fontSpecial: `'Titillium Web', sans-serif`
   },
   fontSize: {
-    caption: '.72rem',
-    body: '1.2rem',
-    subtitle: '2.62rem',
-    headline: '4.2464rem'
+    caption: '11px',
+    body: '14px',
+    large: '18px',
+    h3: '23px',
+    subtitle: '29px',
+    headline: '37px'
+  },
+  line: {
+    caption: '19px',
+    body: '24px',
+    large: '29px',
+    h3: '37px',
+    subtitle: '45px',
+    headline: '57px'
   },
   spacing: {
     xs: '0.8rem',

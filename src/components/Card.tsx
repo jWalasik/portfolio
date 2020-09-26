@@ -58,10 +58,10 @@ const Card = ({project}: {project: any}) => {
 }
 
 const CardWrapper = styled.div`
-.active {
-  transition: all 1s ease-in;
-  border: 3px solid red;
-}
+  .active {
+    transition: all 1s ease-in;
+    border: 3px solid red;
+  }
   margin: ${({theme})=>theme.spacing.s};
   position: relative;
   display: flex;
