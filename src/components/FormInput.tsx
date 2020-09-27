@@ -13,12 +13,12 @@ const FormInput = ({type, label, value='', onChange}: Props) => { //value set to
   return (
     <FieldWrapper>
       <InputWrapper 
-        as={type==='message'? 'textarea' : 'input'} 
+        as={type==='message' ? 'textarea' : 'input'} 
         id={type}
         name={type}
         value={value}
         onChange={onChange}
-        type={'email'}
+        type={type==='email' ? 'email' : 'text'}
         minLength={type==='message' ? 10 : 0}
       />
       <StyledBorder id={`border-${type}`} />
@@ -51,9 +51,9 @@ const LabelWrapper = styled.label<Pick<Props, 'value'>>`
     top: 0;
   }
 `
-const InputWrapper = styled.input.attrs({
-    type: 'email'
-  })`
+const InputWrapper = styled.input.attrs(props => ({
+  type: props.type
+}))`
   background-color: rgba(0,0,0, 0.1);
   border: none;
   font-size: ${({theme})=>theme.fontSize.body};
