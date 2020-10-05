@@ -1,6 +1,5 @@
 import React, {useEffect, useState} from 'react'
 import styled from 'styled-components'
-import {ReactComponent as Mail} from '../assets/icons/mail.svg'
 import FormInput from './FormInput'
 
 interface Fields {
@@ -16,7 +15,9 @@ const initialValues = {
 }
 
 const EmailForm = ({fields}: {fields: Fields}) => {
-  const [formActive, setFormActive] = useState(false)
+  useEffect(()=>{
+    
+  }, [])
   const [values, setValues] = useState<Fields>(initialValues)
 
   const formSubmit = (e: React.FormEvent) => {
@@ -41,18 +42,13 @@ const EmailForm = ({fields}: {fields: Fields}) => {
   })
 
   return (
-    <>
-      <Mail className='icon' onClick={()=>setFormActive(!formActive)} />
-      {!formActive && 
-        <FormWrapper>
-          <AddressWrapper>
-            <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
-          </AddressWrapper>
-          {inputs}
-          <ButtonWrapper onClick={formSubmit}>{fields.submit}</ButtonWrapper>
-        </FormWrapper>}
-      
-    </>
+    <FormWrapper>
+      <AddressWrapper>
+        <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
+      </AddressWrapper>
+      {inputs}
+      <ButtonWrapper onClick={formSubmit}>{fields.submit}</ButtonWrapper>
+    </FormWrapper>
   )
 }
 
@@ -61,15 +57,11 @@ const FormWrapper = styled.form`
   flex-direction: column;
   justify-content: space-around;
   align-content: center;
-  top: 10vh;
-  width: 600px;
+  width: 90%;
 `
 
 const AddressWrapper = styled.address`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: auto;
 
   a {
     text-decoration: none;

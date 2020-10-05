@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ReactComponent as Border} from '../assets/border.svg'
+import {ReactComponent as Border} from '../assets/bevel.svg'
+import BeveledBorder from './BevelBorder'
 
 interface Props {
   type: string,
@@ -9,7 +10,8 @@ interface Props {
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const FormInput = ({type, label, value='', onChange}: Props) => { //value set to empty string to prevent uncontrolled input warning
+const FormInput = ({type, label, value='', onChange}: Props) => {
+  //value set to empty string to prevent uncontrolled input warning
   return (
     <FieldWrapper>
       <InputWrapper 
@@ -21,8 +23,9 @@ const FormInput = ({type, label, value='', onChange}: Props) => { //value set to
         type={type==='email' ? 'email' : 'text'}
         minLength={type==='message' ? 10 : 0}
       />
-      <StyledBorder id={`border-${type}`} />
-      <LabelWrapper value={value}>{label}</LabelWrapper>      
+
+      <BeveledBorder />
+      <LabelWrapper value={value}>{label}</LabelWrapper>
     </FieldWrapper>
   )
 }
@@ -32,6 +35,10 @@ const FieldWrapper = styled.div`
   width: 100%;
   margin-bottom: 15px;
   padding-top: 15px;
+
+  textarea {
+    height: 100px;
+  }
 `
 const LabelWrapper = styled.label<Pick<Props, 'value'>>`
   position: absolute;
@@ -61,20 +68,24 @@ const InputWrapper = styled.input.attrs(props => ({
   color: ${({theme})=>theme.color.offwhite};
   padding: calc(${({theme})=>theme.fontSize.body} / 2);
   box-sizing: border-box;
+  width: 100%;
+  
   :invalid + svg {
     stroke: url(#faded-line-neg);
   }
 `
 const StyledBorder = styled(Border)`
   position: absolute;
-  width: 100%;
   height: 80%;
+  width: 600px;
+  max-width: 100%;
   right: 0;
   bottom: 0;
   pointer-events: none;
   fill: transparent;
   overflow: visible;
   stroke: url(#faded-line);
+  
   ${InputWrapper}:invalid & {
       border: 1px solid red;
     }

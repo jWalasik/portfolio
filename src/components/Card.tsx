@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import Thumbnail from './Thumbnail'
-import {ReactComponent as Border} from '../assets/border.svg'
+import {ReactComponent as Border} from '../assets/bevel.svg'
 
 import {ReactComponent as Git} from '../assets/icons/github.svg'
 import {ReactComponent as Live} from '../assets/icons/website.svg'

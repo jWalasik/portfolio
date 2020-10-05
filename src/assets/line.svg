@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" class="svg-bg" viewBox="0 0 100 1">
+  <defs>
+    <linearGradient gradientUnits="userSpaceOnUse" id="faded-line" x1="0%" y1="0" x2="100%" y2="0%" >
+      <stop offset="0%"   stop-color="var(--color-0)"/>
+      <stop offset="100%" stop-color="var(--color-100)"/>
+    </linearGradient>
+    <linearGradient id="faded-line-neg" x1="55%" y1="55%" x2="75%" y2="75%" >
+      <stop offset="0%"   stop-color="var(--color-0)"/>
+      <stop offset="100%" stop-color="var(--color-100)"/>
+    </linearGradient>
+  </defs>
+  <line vector-effect="non-scaling-stroke" x1="0" x2="100" y1="1" y2="1" />
+</svg>
