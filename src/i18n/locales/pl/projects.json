@@ -3,22 +3,41 @@
   "description": "Ta sekcja zawiera niektóre z moich projektów. This section contains some of my projects, whenever I build something, I always seek to learn as much as possible, exposing my self to new technologies and tools. I also try to document and summarize though process behind each one project, so for more information about development process check out case studies.",
   "projects": [
     {
+      "title": "placeHolder",
+      "stack": "three.js, WebGL",
+      "github": "https://github.com/elPaleniozord/skyAtlas",
+      "live": "https://elpaleniozord.github.io/skyAtlas/",
+      "description": {
+        "short": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+        "long": "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum",
+        "features": [
+          "Lorem ipsum dolor sit amet",
+          "Huge database of 119,617 stars, with precise location, magnitude and spectrum.", 
+          "consectetur adipiscing elit", 
+          "sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+        ],
+        "technical": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      },
+      "image": "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png",
+      "study": "/case-study/sky-atlas"
+    },
+    {
       "title": "skyAtlas",
       "stack": "three.js, WebGL",
       "github": "https://github.com/elPaleniozord/skyAtlas",
       "live": "https://elpaleniozord.github.io/skyAtlas/",
       "description": {
-        "short": "skyAtlas to progresywna aplikacja webowa dla entuzjastów astronomii. Pomaga w identyfikacji i obserwacji ciał niebieskich na nocnym niebie.",
-        "long": "Dowiedz się więcej na temat historii, mitologii i nauki ekslorując Drogę Mleczną. ",
+        "short": "SkyAtlas to progresywna aplikacja webowa dla entuzjastów astronomii. Pomaga w identyfikacji i obserwacji ciał niebieskich na nocnym niebie.",
+        "long": "Wizualizacja danych pochodzących z renomowanych instytucji i misji kosmicznych obejmuje około 120 000 gwiazd, 88 standardowych konstelacji oraz wielu innych objektow. Dowiedz się więcej na temat historii, mitologii i nauki ekslorując Drogę Mleczną.",
         "features": [
           "Stars, planets and constellatons in real time!",
           "Huge database of 119,617 stars, with precise location, magnitude and spectrum.", 
           "Mobile sensor support - just point your device ", 
           "Control what you see by toggling objects, helpers and adjusting magnitude."
         ],
-        "technical": "skyAtlas was built with vanilla Javascript, leveraging graphic acceleration with WebGL and three.js library. Stellar data is derrived from various sources mainly HYG 3.0 Database, NASA JPL and Wikipedia. "
+        "technical": "SkyAtlas został zbudowany za pomocą podstawowego Javascript'u. Wykorzystanie akceleracji graficznej przy pomocy bilblioteki three.js oraz technologii WebGL pozwala na wygenerowanie ogromnej ilosci obiektów w czasie rzeczywistym. Wsparcie dla geolokalizacji i żyroskopu po. Testowano na Chrome v87.428"
       },
-      "image": "",
+      "image": "https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png",
       "study": "/case-study/sky-atlas"
     },
     {

@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   
   body, html {
     background-color: ${({theme}) => theme.color.bgMain};
-    font-family: ${({theme}) => theme.font.fontBody};
+    font-family: ${({theme}) => theme.font.body};
     overflow-x: hidden;
     color: ${({theme}) => theme.color.offwhite};
   }

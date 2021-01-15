@@ -20,7 +20,8 @@ const SocialsWrapper = styled.div`
   display: flex;
     
   svg {
-    margin: ${({theme})=>theme.spacing.s};
+    margin: ${({theme})=>theme.spacing.m};
+    margin-bottom: 150px;
     width: 44px;
     height: 44px;
     fill: ${({theme})=> theme.color.offwhite};

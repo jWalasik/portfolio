@@ -11,7 +11,6 @@ function Home() {
   return (
     <>
       <Header />
-
       <main>
         <Hero />
         <Projects />

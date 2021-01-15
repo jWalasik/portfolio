@@ -3,81 +3,54 @@ import styled from 'styled-components'
 import {ReactComponent as Title} from '../assets/title.svg'
 import Socials from '../components/Socials'
 import Section from './Section'
+import {ReactComponent as Arrow} from '../assets/arrow.svg'
 
 const Hero = () => {
   return (
-    <Section id='hero'>
-      <HeroWrapper>
-        <h1>
-          <Header />
-        </h1>
-        
-        <SubtitleWrapper>
-          <h2>WEB DEVELOPER</h2>
-          <p>in training</p>
-        </SubtitleWrapper>
-              
-        <Socials />
-      </HeroWrapper>
-    </Section>    
+    <HeroWrapper id='hero'>
+      <StyledHeader>JACEK WALASIK</StyledHeader>
+      <StyledSubtitle>WEB DEVELOPER</StyledSubtitle>
+      <StyledSpan>in training</StyledSpan>
+      <Socials />
+      <StyledButton><StyledArrow /></StyledButton>
+    </HeroWrapper>    
   )
 }
 
-const HeroWrapper = styled.header`
-  height: calc(100vh);
-  color: ${({theme}) => theme.color.neon};
-  display: flex;
-  flex-direction: column;
+const HeroWrapper = styled(Section)`
+  height: 100vh;
   justify-content: space-around;
-  align-items: center;
-
-  h1 {
-    width: 50%;
-    min-width: 600px;
-    margin-top: 15vh;
-  }
 `
-const SubtitleWrapper = styled.div`
-  margin-top: -35vh;
-  margin-bottom: -20vh;
-
-  h2 {
-    font-weight: 200;
-    font-size: 7vh;
-    font-family: ${({theme})=>theme.font.fontSpecial};
-    letter-spacing: 7px;
-    color: ${({theme})=>theme.color.offwhite};
-    margin: 0;
-  }
-
-  p {
-    font-size: 20px;
-    color: #a7a8a7;
-    margin: 0;
-    float: right;
-  }
+const StyledHeader = styled.h1`
+  font-family: ${({theme}) => theme.font.accent};
+  font-weight: 200;
+  font-size: ${({theme}) => theme.fontSize.title};
+  letter-spacing: 0.25em;
+  color: ${({theme})=>theme.color.neon};
 `
-
-const Header = styled(Title)`
-  text-anchor: middle;
-  fill: ${({theme}) => theme.color.bgMain};
+const StyledSubtitle = styled.h2`
+  font-weight: 100;
+  font-size: ${({theme})=>theme.fontSize.subtitle};
+  font-family: ${({theme})=>theme.font.accent};
+  letter-spacing: .225em;
+  color: ${({theme})=>theme.color.offwhite};
+`
+const StyledSpan = styled.span`
+  font-size: 14px;
+  color: #888888;
+`
+const StyledButton = styled.button`
+  background-color: transparent;
+  border: none;
+  margin: auto;
+`
+// way to use styles directly on imported component
+const StyledArrow = styled(Arrow)`
+  fill: none;
   stroke: ${({theme}) => theme.color.neon};
-  stroke-width: 0.001;
-  font-size: 34px;
-  font-family: 'Titillium Web', sans-serif;
-  animation: draw 2s ease-in-out infinite;
-  stroke-dasharray: 100%;
-  stroke-dashoffset: 100%;
-  filter: url(#glow);
-  opacity: 0;
-
-  @keyframes draw {
-  100% {
-    stroke-dashoffset: 0%;
-    fill: ${({theme}) => theme.color.neon};
-    opacity: 1;
-    }
-  }
+  stroke-width: 5;
+  width: 44px;
+  height: 70px;
 `
 
 export default Hero

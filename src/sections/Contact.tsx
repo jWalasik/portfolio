@@ -37,7 +37,7 @@ const Contact = () => {
         </Loader>
       </IconsWrapper>
 
-      {formActive && <ContactForm fields={fields}/>}
+      {!formActive && <ContactForm fields={fields}/>}
 
       <StatusWrapper>
         CLOSED FOR JOB OFFERS

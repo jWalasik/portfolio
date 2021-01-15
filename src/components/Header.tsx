@@ -20,7 +20,7 @@ const Header = () => {
 }
 
 const HeaderWrapper = styled.header`
-  background-color: ${({theme}) => theme.color.bgMain};
+  background-color: ${({theme}) => theme.color.shadow};
   position: fixed;
   display: flex;
   justify-content: space-around;
@@ -28,6 +28,11 @@ const HeaderWrapper = styled.header`
   width: 100%;
   top: 0;
 
+  @media ${({theme}) => theme.breakpoints.mobileL} {
+    span {
+      display:none;
+    }
+  }
   span {
     margin-left:  ${({theme}) => theme.spacing.s};
     font-size: ${({theme}) => theme.fontSize.body};
@@ -36,9 +41,9 @@ const HeaderWrapper = styled.header`
 
 const ButtonWrapper = styled.button`
   height: 44px;
-  background-color: ${({theme}) => theme.color.bgMain};
+  background-color: transparent;
   color: ${({theme}) => theme.color.neon};
-  font-size: 20px;
+  font-size: 16px;
   border: none;
   cursor: pointer;
   margin-right:  ${({theme}) => theme.spacing.s};

@@ -8,6 +8,7 @@ import Loader from './components/Loader'
 import FourOhFour from './pages/FourOhFour'
 import Home from './pages/Home'
 import Providers from './Providers';
+import styled from 'styled-components';
 
 function App() {
   const [loading, setLoading] = React.useState(true)
@@ -17,7 +18,7 @@ function App() {
   if(loading) return <Loader />
   return (
       <Suspense fallback={Loader}>
-        <Filters />
+        <SVGDefs />
         <Providers>
           <GlobalStyle />
           <Switch>
@@ -28,5 +29,8 @@ function App() {
       </Suspense>
   );
 }
+const SVGDefs = styled(Filters)`
+  position: absolute;
+`
 
 export default App;

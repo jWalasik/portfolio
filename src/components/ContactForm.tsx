@@ -70,9 +70,10 @@ const AddressWrapper = styled.address`
 `
 
 const ButtonWrapper = styled.button`
-  font-family: ${({theme})=>theme.font.fontSpecial};
-  font-size: ${({theme})=>theme.fontSize.body};
+  font-family: ${({theme})=>theme.font.accent};
+  font-size: ${({theme})=>theme.fontSize.large};
   font-weight: 600;
+  letter-spacing: ${({theme})=>theme.spacing.xs};
   color: ${({theme})=>theme.color.offwhite};
   background: ${({theme})=>theme.color.bgMain};
   max-width: 300px;

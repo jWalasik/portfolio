@@ -6,6 +6,6 @@
     "name": "name",
     "subject": "subject",
     "message": "message",
-    "submit": "submit"
+    "submit": "SUBMIT"
   }
 }
