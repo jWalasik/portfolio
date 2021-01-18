@@ -11,6 +11,7 @@ interface Props {
 }
 
 const FormInput = ({type, label, value='', onChange}: Props) => {
+  
   //value set to empty string to prevent uncontrolled input warning
   return (
     <FieldWrapper>
@@ -37,7 +38,7 @@ const FieldWrapper = styled.div`
   padding-top: 15px;
 
   textarea {
-    height: 100px;
+    height: 150px;
   }
 `
 const LabelWrapper = styled.label<Pick<Props, 'value'>>`

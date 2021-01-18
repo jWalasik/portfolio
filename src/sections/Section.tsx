@@ -14,36 +14,36 @@ const Section = ({id, className, children} : {id: string, className?: string, ch
 }
 
 const SectionWrapper = styled.section`
-  //border: 1px solid blue;
-  width: 100%;
+  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  font-size: ${({theme})=>theme.fontSize.body};
+  font-size: ${({theme}) => theme.fontSize.body};
+  line-height: ${({theme}) => theme.line.body};
   overflow: hidden;
+  padding-bottom: ${({theme}) => theme.spacing.l};
 
   @media ${({theme}) => theme.breakpoints.desktop} {
-    
+    margin: 0 10% 0 10%;
   }
-  @media ${({theme}) => theme.breakpoints.desktop} {
-    
+  @media ${({theme}) => theme.breakpoints.tablet} {
+    margin: 0 5% 0 5%;
   }
-  @media ${({theme}) => theme.breakpoints.desktop} {
-    
+  @media ${({theme}) => theme.breakpoints.mobileL} {
+    margin: 0 10px 0 10px
   }
-  @media ${({theme}) => theme.breakpoints.desktop} {
-    
+  @media ${({theme}) => theme.breakpoints.mobileS} {
+    margin: 3px;
   }
 
-  /* h2 {
+  h2 {
     font-size: ${({theme})=>theme.fontSize.headline};
     color: ${({theme})=>theme.color.neon};
     font-family: ${({theme})=>theme.font.accent};
     font-weight: 200;
-    margin: ${({theme}) => theme.spacing.l};
     margin-right: auto;
-  } */
+  }
 `
 
 export default Section

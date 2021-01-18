@@ -7,19 +7,19 @@ import styled from 'styled-components'
 
 const Socials = () => {
   return (
-    <SocialsWrapper>
+    <StyledDiv>
       <Git />
       <Codepen />
       <Linked />
       <Codewars />
-    </SocialsWrapper>
+    </StyledDiv>
   )
 }
 
-const SocialsWrapper = styled.div`
+const StyledDiv = styled.div`
   display: flex;
     
-  svg {
+  &>svg {
     margin: ${({theme})=>theme.spacing.m};
     margin-bottom: 150px;
     width: 44px;

@@ -28,12 +28,16 @@ const StyledHeader = styled.h1`
   letter-spacing: 0.25em;
   color: ${({theme})=>theme.color.neon};
 `
-const StyledSubtitle = styled.h2`
-  font-weight: 100;
-  font-size: ${({theme})=>theme.fontSize.subtitle};
-  font-family: ${({theme})=>theme.font.accent};
-  letter-spacing: .225em;
-  color: ${({theme})=>theme.color.offwhite};
+const StyledSubtitle = styled.h2`  
+  //spcecificy boost
+  && {
+    font-weight: 100;
+    font-size: ${({theme})=>theme.fontSize.subtitle};
+    font-family: ${({theme})=>theme.font.body};
+    letter-spacing: .225em;
+    margin-right: 0;
+    color: ${({theme})=>theme.color.offwhite};
+  }
 `
 const StyledSpan = styled.span`
   font-size: 14px;

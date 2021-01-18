@@ -3,6 +3,8 @@ import { createGlobalStyle, ThemeProvider, keyframes } from 'styled-components'
 
 export type ThemeType = typeof theme
 
+const baseFontSize = 18
+
 const theme = {
   color: {
     bgMain: 'rgb(25, 27, 25)',
@@ -24,22 +26,20 @@ const theme = {
     body: `'Lato', sans-serif`,
     accent: `'Titillium Web', sans-serif`
   },
+  //rem set to 18px, defined at GlobalStyle
   fontSize: {
-    caption: '11px',
-    body: '14px',
-    large: '18px',
-    h3: '22px',
-    headline: '32px',
-    subtitle: '60px',
-    title: '92px'
+    caption: '0.875rem',
+    body: '1rem',
+    large: '1.333rem',
+    headline: '1.889rem',
+    subtitle: '3rem',
+    title: '5.222rem'
   },
   line: {
-    caption: '19px',
-    body: '24px',
-    large: '29px',
-    h3: '37px',
-    subtitle: '45px',
-    title: '72px'
+    caption: `${1.5*0.875}rem`,
+    body: '1.5rem',
+    large: `${1.5*1.333}rem`,
+    headline: `${1.5*1.889}rem`,
   },
   spacing: {
     xs: '0.8rem',
@@ -51,10 +51,10 @@ const theme = {
     lineHeight: 1.6
   },
   breakpoints: {
-    mobileS: `(min-width: 320px)`,
-    mobileM: `(min-width: 375px)`,
+    mobileS: `(max-width: 320px)`,
+    mobileM: `(max-width: 375px)`,
     mobileL: `(max-width: 425px)`,
-    tablet: `(min-width: 768px)`,
+    tablet: `(max-width: 768px)`,
     laptop: `(min-width: 1024px)`,
     desktop: `(min-width: 1440px)`,
     desktopL: `(min-width: 2560px)`
