@@ -15,7 +15,6 @@ function Home() {
         <Hero />
         <Projects />
         <About />
-        <Stack />
         <Contact />
       </main>
 

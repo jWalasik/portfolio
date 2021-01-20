@@ -23,11 +23,6 @@ const Navigator = () => {
           <Trans i18nKey='nav:about' ></Trans>          
         </li>
 
-        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'stack' ? 'active' : undefined} id='stack'>
-          <Mail className='icon'/>
-          <Trans i18nKey='nav:stack' ></Trans>          
-        </li>
-
         <li onClick={ctx.scrollTo} className={ctx.activeLink === 'contact' ? 'active' : undefined} id='contact'>
           <Mail className='icon'/>
           <Trans i18nKey='nav:contact' ></Trans>          

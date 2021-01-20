@@ -27,6 +27,20 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     overflow-x: hidden;
     color: ${({theme}) => theme.color.offwhite};
   }
+  
+  h3 {
+    color: ${({theme}) => theme.color.neon};
+    font-size: ${({theme}) => theme.fontSize.large};
+    font-family: ${({theme}) => theme.font.accent};
+    font-weight: 100;
+    margin: ${({theme}) => theme.spacing.l + ' auto 0 '+theme.spacing.l};
+    margin-right: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: ${({theme}) => theme.color.neon};
+  }
 
   input:-webkit-autofill,
   input:-webkit-autofill:hover, 

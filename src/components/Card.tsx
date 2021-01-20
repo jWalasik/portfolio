@@ -61,12 +61,7 @@ const CardWrapper = styled.div`
 `
 
 const StyledHeader = styled.h3`
-  color: ${({theme}) => theme.color.neon};
-  font-size: ${({theme}) => theme.fontSize.heading};
-  font-family: ${({theme}) => theme.font.accent};
-  font-weight: 100;
-  margin: ${({theme}) => theme.spacing.l + ' auto 0 '+theme.spacing.l};
-  margin-right: auto;
+
 `
 
 const StyledThumbnail = styled.img`
@@ -86,8 +81,6 @@ const IconsWrapper = styled.div`
   }
 `
 const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: ${({theme}) => theme.color.neon};
   white-space: nowrap;
   margin: ${({theme}) => theme.spacing.s};
   margin-right: auto;
