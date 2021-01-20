@@ -17,7 +17,6 @@ const Socials = () => {
 }
 
 const StyledDiv = styled.div`
-  display: flex;
     
   &>svg {
     margin: ${({theme})=>theme.spacing.m};

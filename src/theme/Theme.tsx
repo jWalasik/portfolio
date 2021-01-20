@@ -42,11 +42,11 @@ const theme = {
     headline: `${1.5*1.889}rem`,
   },
   spacing: {
-    xs: '0.8rem',
-    s: '1.3rem',
-    m: '2.1rem',
-    l: '3.4rem',
-    xl: '5.5rem',
+    xs: '0.4rem',
+    s: '0.75rem',
+    m: '1rem',
+    l: '1.6rem',
+    xl: '2.55rem',
 
     lineHeight: 1.6
   },

@@ -12,7 +12,7 @@ interface Project {
   stack: string;
   github: string;
   live: string;
-  description: Object;
+  description: object;
   image: string;
   study: string;
 }
@@ -21,125 +21,87 @@ const Card = ({project}: {project: any}) => {
   const [collapsed, setCollapsed] = useState(true)
 
   return (
-    <CardWrapper onClick={()=>setCollapsed(!collapsed)} className={collapsed ? '' : 'active'}>
+    <CardWrapper>
+      <StyledHeader>{project.title}</StyledHeader>
 
-      <TopWrapper>
-        <h3>{project.title}</h3>
+      <IconsWrapper>
+        <a href={project.github}><Git /></a>
+        <a href={project.live}><Live /></a>
+      </IconsWrapper>
+    
+    
+    <StyledParagraph>{project.description.short}</StyledParagraph>
+    <StyledParagraph>{project.description.features}</StyledParagraph>
+    
+    <StyledThumbnail src={project.image}  alt={project.title}/>
+    
+    {project.features}
 
-        <IconsWrapper>
-          <a href={project.github}><Git /></a>
-          <a href={project.live}><Live /></a>
-        </IconsWrapper>
-      </TopWrapper>
-
-      <div className="bevel top"></div>
-
-      <DetailsWrapper>
-      {
-        collapsed
-        ?
-        <p>{project.description.short}</p>
-        :
-        <div>
-          <p>{project.description.short}</p>
-          <p>{project.description.long}</p>
-
-          <Thumbnail url={project.image} />
-
-          <Link className='case' to={project.study}>CASE STUDY</Link>
-        </div>
-      }
-      </DetailsWrapper>
+    <StyledParagraph>{project.description.long}</StyledParagraph>
+    
+    <StyledParagraph>
+      More details and though process behind developement:
+      <StyledLink className='case' to={project.study}>CASE STUDY</StyledLink>
+    </StyledParagraph>
       
-      <StackWrapper>{project.stack}</StackWrapper>
-      <div className="bevel bottom"></div>
+    <StackWrapper>
+      {project.stack}
+    </StackWrapper>   
+
     </CardWrapper>
   )
 }
 
 const CardWrapper = styled.div`
-  .active {
-    transition: all 1s ease-in;
-    border: 3px solid red;
-  }
-  margin: ${({theme})=>theme.spacing.s};
-  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  transition: all 1s ease-in;
-
-  width: 85%;
-
-  border: 1px solid red;
-
-  h3 {
-    font-family: ${({theme})=>theme.font.fontSpecial};
-    font-weight: 300;
-    align-self: center;
-  }
-
-  .bevel {
-    border: 2px solid green;
-    position: absolute;
-    width: 50%;
-    height: 50%;
-  }
-  .bottom {
-    bottom: 0;
-    right: 0;
-  }
+  align-items: center;
+  margin: ${({theme}) => theme.spacing.l} 0;
 `
 
-const BorderWrapper = styled(Border)`
-  position:absolute;
-  width: 100%;
-  height: 100%;
-  stroke-width: 1;
-  fill: transparent;
-  overflow: visible;
-  stroke: url(#gradient);
-  filter: url(#glow);
-  transition: height ease-in-out 1s;
+const StyledHeader = styled.h3`
+  color: ${({theme}) => theme.color.neon};
+  font-size: ${({theme}) => theme.fontSize.heading};
+  font-family: ${({theme}) => theme.font.accent};
+  font-weight: 100;
+  margin: ${({theme}) => theme.spacing.l + ' auto 0 '+theme.spacing.l};
+  margin-right: auto;
+`
 
-  .top {
-    transform: scale(-.6,-.6);
-    transform-origin: 38% 38%;
-  }
+const StyledThumbnail = styled.img`
+  object-fit: cover;
+  width: 95%;
+  height: 350px;
 `
 
 const IconsWrapper = styled.div`
+  display: flex;
   margin-left: auto;
+  
   svg {
+    margin: ${({theme}) => theme.spacing.xs};
     height: 44px;
-    fill: ${({theme})=>theme.color.offwhite};
-    margin-left: ${({theme})=>theme.spacing.s};
-  }
-  svg:hover {
-    fill: ${({theme})=>theme.color.neon};
-    transition: all ease-out 1s;
+    fill: ${({theme}) => theme.color.offwhite};
   }
 `
-const DetailsWrapper = styled.div`
-  transition: all 1s ease-in;
-  border: 1px solid yellow;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({theme}) => theme.color.neon};
+  white-space: nowrap;
+  margin: ${({theme}) => theme.spacing.s};
+  margin-right: auto;
+`
 
-  .case {
-    text-decoration: none;
-    color: ${({theme})=>theme.color.neon};
-  }
+const StyledParagraph = styled.div`
+  margin: ${({theme}) => theme.spacing.s} 0;
 `
 const StackWrapper = styled.div`
-  padding: 0 15% 0 15%;
+  width: 12rem; 
+  background-color: ${({theme}) => theme.color.shadow};
   margin-left: auto;
-  color: ${({theme})=>theme.color.offwhite};
-  background-color: black;
-  clip-path: polygon(23px 0%, 100% 0%, calc(100% - 23px) 100%, 0% 100%);
+  padding: ${({theme}) => theme.spacing.xs};
+  text-align: center;
 `
 
-const TopWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border: 1px solid blue;
-`
 export default Card
