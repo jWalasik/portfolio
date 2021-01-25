@@ -1,40 +1,29 @@
 import * as React from 'react'
 import styled from 'styled-components'
-import { Trans, useTranslation } from 'react-i18next'
 
-type Techs = Object
+
+import DeviceSVG from './DeviceSVG'
+import Skills from './Skills'
 
 const TechStack = () => {
-  const {t, i18n} = useTranslation('stack')
-  const technologies = Object.entries(t<Techs>('techs', { returnObjects: true }))
-    .map((tech, i) => {
-      return (
-        <TechWrapper>
-          <StyledHeader>{tech[0]}</StyledHeader>
-          <StyledParagraph>
-            {tech[1].map((p: React.ReactNode, i: number) => <Trans key={i}>{p}</Trans>)}
-          </StyledParagraph>
-        </TechWrapper>
-      )
-    })
+  
   return (
     <StackWrapper>
-      {technologies}
+      <DeviceSVG />
+      <Skills />   
     </StackWrapper>
   )
 }
 
 const StackWrapper = styled.div`
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 
-`
-const TechWrapper = styled.div`
-
-`
-const StyledHeader = styled.h3`
-
-`
-const StyledParagraph = styled.p`
-
+  @media screen and (min-width: 700px) {
+    flex-direction: row-reverse;
+  }
 `
 
 export default TechStack

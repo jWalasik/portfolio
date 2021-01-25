@@ -12,10 +12,7 @@ const About = () => {
       <h2><Trans i18nKey='about:header'></Trans></h2>
 
       <Bio />
-
       <TechStack />
-      
-      
     </Section>
   )
 }

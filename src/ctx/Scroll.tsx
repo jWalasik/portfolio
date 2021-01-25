@@ -43,6 +43,7 @@ export const ScrollProvider = ({children}: {children: React.ReactNode}) => {
   }
 
   const scrollTo = (e: {target: HTMLElement}) => {
+    console.log(e.target)
     const target = refList.current[e.target.id]
     window.scrollTo(0, target.current.offsetTop)
   }

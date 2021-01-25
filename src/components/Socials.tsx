@@ -17,10 +17,10 @@ const Socials = () => {
 }
 
 const StyledDiv = styled.div`
-    
+  display: flex;
+  margin: ${({theme}) => theme.spacing.m};
   &>svg {
     margin: ${({theme})=>theme.spacing.m};
-    margin-bottom: 150px;
     width: 44px;
     height: 44px;
     fill: ${({theme})=> theme.color.offwhite};

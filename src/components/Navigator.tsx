@@ -12,22 +12,22 @@ const Navigator = () => {
 
   return (
     <NavWrapper>
-      <ul>
-        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'projects' ? 'active' : undefined} id='projects'>
-          <Projects className='icon'/>
+      <StyledUL>
+        <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'projects' ? 'active' : undefined} id='projects'>
+          <Projects id='projects' className='icon'/>
           <Trans i18nKey='nav:projects' ></Trans>     
-        </li>
+        </StyledLI>
 
-        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'about' ? 'active' : undefined} id='about'>
-          <About className='icon'/>
+        <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'about' ? 'active' : undefined} id='about'>
+          <About id='about' className='icon'/>
           <Trans i18nKey='nav:about' ></Trans>          
-        </li>
+        </StyledLI>
 
-        <li onClick={ctx.scrollTo} className={ctx.activeLink === 'contact' ? 'active' : undefined} id='contact'>
-          <Mail className='icon'/>
+        <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'contact' ? 'active' : undefined} id='contact'>
+          <Mail id='contact' className='icon'/>
           <Trans i18nKey='nav:contact' ></Trans>          
-        </li>
-      </ul>
+        </StyledLI>
+      </StyledUL>
     </NavWrapper>
   )
 }
@@ -40,34 +40,34 @@ const NavWrapper = styled.nav`
   letter-spacing: 2px;
   justify-content: space-around;
   align-items: center;
+`
+const StyledUL = styled.ul`
+  display: flex;
+  list-style: none;
+  margin: 0;
+`
+const StyledLI = styled.li`
+  font-size: ${({theme}) => theme.fontSize.body};
+  height: 44px;
+  margin: 3px 5px 3px 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all .3s;
 
-  @media ${({theme}) => theme.breakpoints.mobileS} {
-
-  }
-  ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-  }
-
-  li {
-    height: 44px;
-    margin: 3px 5px 3px 5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
-
-  .active {
-    color: ${({theme})=>theme.color.neon};
-  }
-  
   .icon {
     fill: ${({theme})=>theme.color.offwhite};
     margin: auto;
     width: 20px;
     margin-right: 3px;
   }
+  .active {
+    color: ${({theme})=>theme.color.neon};
+  }
+
+  @media screen and (max-width: 650px) {
+    font-size: 0;
+  }  
 `
 
 export default Navigator

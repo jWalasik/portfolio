@@ -3,8 +3,6 @@ import { createGlobalStyle, ThemeProvider, keyframes } from 'styled-components'
 
 export type ThemeType = typeof theme
 
-const baseFontSize = 18
-
 const theme = {
   color: {
     bgMain: 'rgb(25, 27, 25)',
@@ -28,12 +26,12 @@ const theme = {
   },
   //rem set to 18px, defined at GlobalStyle
   fontSize: {
-    caption: '0.875rem',
-    body: '1rem',
-    large: '1.333rem',
-    headline: '1.889rem',
-    subtitle: '3rem',
-    title: '5.222rem'
+    caption: 'clamp(14px, 16px, 18px)',
+    body: 'clamp(16px, 16px + 1vw, 22px)',
+    large: 'clamp(23px, 1.333rem, 29px)',
+    headline: 'clamp(29px, 5vw, 35px)',
+    subtitle: 'clamp(28px, 5vw, 43px)',
+    title: 'clamp(47px, 9vw, 66px)'
   },
   line: {
     caption: `${1.5*0.875}rem`,
@@ -51,13 +49,13 @@ const theme = {
     lineHeight: 1.6
   },
   breakpoints: {
-    mobileS: `(max-width: 320px)`,
-    mobileM: `(max-width: 375px)`,
-    mobileL: `(max-width: 425px)`,
-    tablet: `(max-width: 768px)`,
-    laptop: `(min-width: 1024px)`,
-    desktop: `(min-width: 1440px)`,
-    desktopL: `(min-width: 2560px)`
+    mobileS: `screen and (max-width: 320px)`,
+    mobileM: `screen and (min-width: 320px) and (max-width: 375px)`,
+    mobileL: `screen and (min-width: 375px) and (max-width: 425px)`,
+    tablet: `screen and (min-width: 425px) and (max-width: 768px)`,
+    laptop: `screen and (min-width: 768px) and (min-width: 1024px)`,
+    desktop: `screen and (min-width: 1024px) and (min-width: 1440px)`,
+    desktopL: `screen and (min-width: 2560px)`
   }
 }
 

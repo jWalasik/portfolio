@@ -19,16 +19,20 @@ const Hero = () => {
 
 const HeroWrapper = styled(Section)`
   height: 100vh;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
 `
 const StyledHeader = styled.h1`
+  display: flex;
   font-family: ${({theme}) => theme.font.accent};
   font-weight: 200;
   font-size: ${({theme}) => theme.fontSize.title};
+  line-height: 100%;
   letter-spacing: 0.25em;
   color: ${({theme})=>theme.color.neon};
 `
 const StyledSubtitle = styled.h2`  
+  line-height: 100%;
   //spcecificy boost
   && {
     font-weight: 100;
@@ -42,11 +46,14 @@ const StyledSubtitle = styled.h2`
 const StyledSpan = styled.span`
   font-size: 14px;
   color: #888888;
+  margin-left: 200px;
+  margin-top: -25px;
 `
 const StyledButton = styled.button`
+  position: absolute;
   background-color: transparent;
   border: none;
-  margin: auto;
+  bottom: ${({theme}) => theme.spacing.m};
 `
 // way to use styles directly on imported component
 const StyledArrow = styled(Arrow)`
