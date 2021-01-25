@@ -1,23 +1,11 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import Thumbnail from './Thumbnail'
-import {ReactComponent as Border} from '../assets/bevel.svg'
 
 import {ReactComponent as Git} from '../assets/icons/github.svg'
 import {ReactComponent as Live} from '../assets/icons/website.svg'
 
-interface Project {
-  title: string;
-  stack: string;
-  github: string;
-  live: string;
-  description: object;
-  image: string;
-  study: string;
-}
-
-const Card = ({project}: {project: any}) => {
+const Card = ({project}) => {
   const [collapsed, setCollapsed] = useState(true)
 
   return (
@@ -38,7 +26,7 @@ const Card = ({project}: {project: any}) => {
     {project.features}
 
     <StyledParagraph>{project.description.long}</StyledParagraph>
-    
+
     <StyledParagraph>
       More details and though process behind developement:
       <StyledLink className='case' to={project.study}>CASE STUDY</StyledLink>

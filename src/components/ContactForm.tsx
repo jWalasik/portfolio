@@ -20,15 +20,34 @@ const EmailForm = ({fields}: {fields: Fields}) => {
     
   }, [])
   const [values, setValues] = useState<Fields>(initialValues)
+  const [status, setStatus] = useState('SUBMIT')
 
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('form submit')
+    setStatus('Pending')
+    fetch('/', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+      body: encode({'form-name': 'contact', ...values})
+    })
+      .then(res => {
+        console.log(res)
+        setStatus(res.statusText)
+      })
+      .catch(err => {
+        console.log(err)
+        setStatus(err.statusText)
+      })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const {name, value} = e.target
     setValues({...values, [name]:value})
+  }
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&')
   }
 
   const inputs = Object.entries(fields).map(([key, label]) => {
@@ -42,9 +61,9 @@ const EmailForm = ({fields}: {fields: Fields}) => {
     )
     else return null
   })
-
+  console.log(status)
   return (
-    <StyledForm>
+    <StyledForm data-netlify='true'>
       <StyledAddress>
         <StyledIcon/>
         <a href="mailto:jacekwalasik89@gmail.com">

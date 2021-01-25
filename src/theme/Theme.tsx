@@ -1,5 +1,5 @@
 import React from 'react'
-import { createGlobalStyle, ThemeProvider, keyframes } from 'styled-components'
+import { ThemeProvider } from 'styled-components'
 
 export type ThemeType = typeof theme
 

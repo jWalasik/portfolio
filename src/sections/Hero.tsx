@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ReactComponent as Title} from '../assets/title.svg'
 import Socials from '../components/Socials'
 import Section from './Section'
 import {ReactComponent as Arrow} from '../assets/arrow.svg'

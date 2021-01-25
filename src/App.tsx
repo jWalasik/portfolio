@@ -1,5 +1,4 @@
 import React, { Suspense } from 'react'
-import logo from './logo.svg';
 import {ReactComponent as Filters} from './assets/filters.svg'
 
 import { Switch, Route } from 'react-router-dom'

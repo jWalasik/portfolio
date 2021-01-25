@@ -7,7 +7,7 @@ import styled from 'styled-components';
 type Projects = Object[];
 
 const Projects = () => {
-  const {t, i18n} = useTranslation('projects')
+  const {t, } = useTranslation('projects')
   const projects = t<Projects>('projects', {returnObjects: true})
   const list = projects.map((project, i) => {
     return <Card project={project} key={i} />
