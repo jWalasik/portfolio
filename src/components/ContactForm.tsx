@@ -63,7 +63,7 @@ const EmailForm = ({fields}: {fields: Fields}) => {
   })
   console.log(status)
   return (
-    <StyledForm data-netlify='true'>
+    <StyledForm data-netlify='true' name='contact' method='post'>
       <StyledAddress>
         <StyledIcon/>
         <a href="mailto:jacekwalasik89@gmail.com">
