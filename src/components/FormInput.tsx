@@ -3,30 +3,37 @@ import styled from 'styled-components'
 import {ReactComponent as Border} from '../assets/bevel.svg'
 import BeveledBorder from './BevelBorder'
 
+interface Values {
+  id: string,
+  isValid: boolean,
+  touched: boolean,
+  value: string,
+  validation: any
+}
 interface Props {
   type: string,
   label: string,
-  value: string,
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  values: Values,
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
 }
 
-const FormInput = ({type, label, value='', onChange}: Props) => {
-  
-  //value set to empty string to prevent uncontrolled input warning
+const FormInput = ({label, onChange, values: {id, isValid, touched, value='', validation}}: Props) => {
   return (
     <FieldWrapper>
-      <InputWrapper 
-        as={type==='message' ? 'textarea' : 'input'} 
-        id={type}
-        name={type}
+      <InputWrapper
+        as={id==='message' ? 'textarea' : 'input'} 
+        id={id}
+        name={id}
         value={value}
         onChange={onChange}
-        type={type==='email' ? 'email' : 'text'}
-        minLength={type==='message' ? 10 : 0}
+        type={id==='email' ? 'email' : 'text'}
+        minLength={validation.minLength}
+        required={validation.isReq}
       />
 
       <BeveledBorder />
-      <LabelWrapper value={value}>{label}</LabelWrapper>
+      {console.log(validation.message)}
+      <LabelWrapper value={value}>{validation.message !== '' && touched ? validation.message : label}</LabelWrapper>
     </FieldWrapper>
   )
 }
@@ -41,8 +48,9 @@ const FieldWrapper = styled.div`
     height: 150px;
   }
 `
-const LabelWrapper = styled.label<Pick<Props, 'value'>>`
+const LabelWrapper = styled.label<Pick<Props, any>>`
   position: absolute;
+  height: 100%;
   top: 25px;
   left: 5px;
   transition: .3s ease;
@@ -61,7 +69,7 @@ const LabelWrapper = styled.label<Pick<Props, 'value'>>`
 `
 const InputWrapper = styled.input.attrs(props => ({
   type: props.type
-}))`
+}))<any>`
   background-color: rgba(0,0,0, 0.1);
   border: none;
   font-size: ${({theme})=>theme.fontSize.body};
@@ -70,8 +78,12 @@ const InputWrapper = styled.input.attrs(props => ({
   padding: calc(${({theme})=>theme.fontSize.body} / 2);
   box-sizing: border-box;
   width: 100%;
-  
+  :invalid {
+
+  }
   :invalid + svg {
+    fill: red;
+    border: 1px solid red;
     stroke: url(#faded-line-neg);
   }
 `
@@ -87,7 +99,7 @@ const StyledBorder = styled(Border)`
   overflow: visible;
   stroke: url(#faded-line);
   
-  ${InputWrapper}:invalid & {
+  ${InputWrapper}:invalid {
       border: 1px solid red;
     }
   

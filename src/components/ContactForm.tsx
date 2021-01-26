@@ -1,30 +1,80 @@
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useReducer, useState} from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
 import {ReactComponent as Mail} from '../assets/icons/mail.svg'
 
+const reducer = (state, action) => {
+  switch(action.type) {
+    case 'input': 
+      console.log(action)
+      return action
+  }
+}
+
 interface Fields {
-  [key:string]: string
+  [key:string]: any
 }
 
 const initialValues = {
-  email: '',
-  message: '',
-  name: '',
-  subject: '',
-  type: ''
+  email: {
+    id: 'email',
+    value: '',
+    validation: {
+      message: '',
+      isReq: true,
+      minLength: 0
+    },
+    touched: false,
+    isValid: false
+  },
+  message: {
+    id: 'message',
+    value: '',
+    validation: {
+      message: '',
+      isReq: true,
+      minLength: 10
+    },
+    touched: false,
+    isValid: false
+  },
+  name: {
+    id: 'name',
+    value: '',
+    validation: {
+      message: '',
+      isReq: false
+    },    
+    touched: false,
+    isValid: true
+  },
+  subject: {
+    id: 'subject',
+    value: '',
+    validation: {
+      message: '',
+      isReq: true,
+      minLength: 4
+    },
+    touched: false,
+    isValid: false
+  },
 }
 
-const EmailForm = ({fields}: {fields: Fields}) => {
-  useEffect(()=>{
-    
-  }, [])
+const EmailForm = ({fields}) => {
   const [values, setValues] = useState<Fields>(initialValues)
-  const [status, setStatus] = useState('SUBMIT')
-
+  // const [state, dispatch] = useReducer(reducer, initialValues, init)
+  
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    setStatus('Pending')
+    //@ts-ignore
+    // tslint:disable-next-line
+    if(!Object.values(values).every(field => field.isValid)){
+      console.log('invalid')
+      return 
+    }
+    console.log('all valid')
+
     fetch('/', {
       method: 'POST',
       headers: {'Content-Type': 'application/x-www-form-urlencoded'},
@@ -32,43 +82,55 @@ const EmailForm = ({fields}: {fields: Fields}) => {
     })
       .then(res => {
         console.log(res)
-        setStatus(res.statusText)
       })
       .catch(err => {
         console.log(err)
-        setStatus(err.statusText)
       })
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const {name, value} = e.target
-    setValues({...values, [name]:value})
+    const {name, value, validity} = e.target
+    const update = values[name]
+    update.value = value
+    update.touched = true
+    
+    update.isValid = validity.valid
+    let message = ''
+    if(validity.tooShort) {
+      message = `${name} is too short`
+    } else if (validity.typeMismatch) {
+      message = `${name} format is invalid`
+    } else if (update.validation.isReq && update.value === '') {
+      message = `${name} is required`
+    }
+    update.validation.message = message
+    setValues({...values, [name]: update})
   }
+
   const encode = (data) => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&')
   }
 
-  const inputs = Object.entries(fields).map(([key, label]) => {
+  const inputs = Object.entries(fields).map(([key, label]: [string, string]) => {
     if(key !== 'submit') return (
+      // @ts-ignore
       <FormInput 
-        key={key}
-        type={key} 
+        key={key} 
         label={label} 
         onChange={handleChange} 
-        value={values[key]} />
+        values={values[key]}
+      />
     )
     else return null
   })
-  console.log(status)
+
   return (
     <StyledForm data-netlify='true' name='contact' method='post'>
       <StyledAddress>
         <StyledIcon/>
-        <a href="mailto:jacekwalasik89@gmail.com">
-        
-        jacekwalasik89@gmail.com</a>
+        <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
       </StyledAddress>
       {inputs}
       <StyledButton onClick={formSubmit}>{fields.submit}</StyledButton>
