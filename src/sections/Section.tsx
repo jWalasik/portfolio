@@ -14,7 +14,6 @@ const Section = ({id, className, children} : {id: string, className?: string, ch
 }
 
 const SectionWrapper = styled.section`
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

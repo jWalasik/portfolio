@@ -1,3 +1,4 @@
+import { url } from 'inspector'
 import React from 'react'
 import styled from 'styled-components'
 import {ReactComponent as Border} from '../assets/bevel.svg'
@@ -19,7 +20,7 @@ interface Props {
 
 const FormInput = ({label, onChange, values: {id, isValid, touched, value='', validation}}: Props) => {
   return (
-    <FieldWrapper>
+    <FieldWrapper isValid={touched && !isValid}>
       <InputWrapper
         as={id==='message' ? 'textarea' : 'input'} 
         id={id}
@@ -32,17 +33,30 @@ const FormInput = ({label, onChange, values: {id, isValid, touched, value='', va
       />
 
       <BeveledBorder />
-      {console.log(validation.message)}
-      <LabelWrapper value={value}>{validation.message !== '' && touched ? validation.message : label}</LabelWrapper>
+      <LabelWrapper isValid={touched && !isValid} value={value}>{validation.message !== '' && touched ? validation.message : label}</LabelWrapper>
     </FieldWrapper>
   )
 }
 
-const FieldWrapper = styled.div`
+const FieldWrapper = styled.div.attrs(props => {})`
   position: relative;
   width: 100%;
   margin-bottom: 15px;
   padding-top: 15px;
+  
+  & svg {
+    stroke: ${props => !props.isValid ? `url(#faded-line)` : `url(#faded-line-neg)`};
+    filter: url(#glow);
+
+  #faded-line {
+      --color-0: ${({theme})=> theme.color.bgMain};
+      --color-100: ${({theme})=> theme.color.neon};
+    }
+    #faded-line-neg {
+      --color-0: ${({theme})=> theme.color.bgMain};
+      --color-100: ${({theme})=> theme.color.negative};
+    }
+  }
 
   textarea {
     height: 150px;
@@ -56,7 +70,10 @@ const LabelWrapper = styled.label<Pick<Props, any>>`
   transition: .3s ease;
   text-transform: uppercase;
   letter-spacing: 2px;
-  ${props=>{
+  pointer-events: none;
+  color: ${props => props.isValid ? props.theme.color.negative : ``};
+
+  ${props =>{
     if(props.value!=='') return `
       top: 0;
       font-size: ${props.theme.fontSize.caption};
@@ -78,40 +95,6 @@ const InputWrapper = styled.input.attrs(props => ({
   padding: calc(${({theme})=>theme.fontSize.body} / 2);
   box-sizing: border-box;
   width: 100%;
-  :invalid {
-
-  }
-  :invalid + svg {
-    fill: red;
-    border: 1px solid red;
-    stroke: url(#faded-line-neg);
-  }
 `
-const StyledBorder = styled(Border)`
-  position: absolute;
-  height: 80%;
-  width: 600px;
-  max-width: 100%;
-  right: 0;
-  bottom: 0;
-  pointer-events: none;
-  fill: transparent;
-  overflow: visible;
-  stroke: url(#faded-line);
-  
-  ${InputWrapper}:invalid {
-      border: 1px solid red;
-    }
-  
-  #faded-line {
-    --color-0: ${({theme})=> theme.color.bgMain};
-    --color-100: ${({theme})=> theme.color.neon};
-  }
-  #faded-line-neg {
-    --color-0: ${({theme})=> theme.color.bgMain};
-    --color-100: ${({theme})=> theme.color.negative};
-  }
-`
-
 
 export default FormInput
