@@ -37,7 +37,7 @@
         ],
         "technical": "skyAtlas was built with vanilla Javascript, leveraging graphic acceleration with WebGL and three.js library. Stellar data is derrived from various sources mainly HYG 3.0 Database, NASA JPL and Wikipedia. "
       },
-      "image": "",
+      "image": "images/skyAtlas-raw.bmp",
       "study": "/case-study/sky-atlas"
     },
     {

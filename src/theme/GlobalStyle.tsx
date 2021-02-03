@@ -23,7 +23,8 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   body, html {
     background-color: ${({theme}) => theme.color.bgMain};
     font-family: ${({theme}) => theme.font.body};
-    font-size: 18px;
+    font-size: ${({theme}) => theme.fontSize.body};
+    line-height: ${({theme}) => theme.line.body};
     overflow-x: hidden;
     color: ${({theme}) => theme.color.offwhite};
   }

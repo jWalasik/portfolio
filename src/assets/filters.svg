@@ -1,19 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0 ">
   <defs>
-    <filter id="glow">
-      <feGaussianBlur class="blur" result="coloredBlur" stdDeviation="2"></feGaussianBlur>
-      <feMerge>
-        <feMergeNode in="coloredBlur"></feMergeNode>
-        <feMergeNode in="coloredBlur"></feMergeNode>
-        <feMergeNode in="SourceGraphic"></feMergeNode>
-      </feMerge>
-    </filter>
-  </defs>
-  <defs>
   
     <linearGradient id="gradient" x1="55%" y1="55%" x2="75%" y2="75%" >
       <stop offset="0%"   stop-color="#28ff28"/>
       <stop offset="100%" stop-color="#2bfa20"/>
     </linearGradient>
+
+    <filter id="drop-shadow">
+      <feComponentTransfer in="SourceAlpha" result="inset-selection">
+                <feFuncA type="discrete" tableValues="0 1 1 1 1 1"/>
+            </feComponentTransfer>
+            
+            <feComponentTransfer in="SourceGraphic" result="original-no-fill">
+                <feFuncA type="discrete" tableValues="0 0 1"/>
+            </feComponentTransfer>
+ 
+            <feColorMatrix type="matrix" in="original-no-fill" result="new-source-alpha" values="0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 0 0
+                      0 0 0 1 0"
+/>            
+          
+            <feGaussianBlur in="new-source-alpha" result="blur" stdDeviation="5" />
+            <feGaussianBlur in="new-source-alpha" result="blur2" stdDeviation="10" />
+            <feGaussianBlur in="new-source-alpha" result="blur3" stdDeviation="15" />
+            <feMerge result="blur">
+                <feMergeNode in="blur" mode="normal"/>
+                <feMergeNode in="blur2" mode="normal"/>
+                <feMergeNode in="blur3" mode="normal"/>
+            </feMerge>
+
+            <feComposite operator="in" in="inset-selection" in2="blur" result="inset-blur"/>
+ 
+            <feComposite operator="over" in="original-no-fill" in2="inset-blur"/> 
+    </filter>
   </defs>
 </svg>

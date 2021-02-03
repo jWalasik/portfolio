@@ -1,53 +1,53 @@
 import * as React from 'react'
-import { useState, useCallback, useRef } from 'react'
-import styled from 'styled-components'
+import { useState, useCallback, useRef, useEffect, useContext } from 'react'
+import styled, {ThemeContext} from 'styled-components'
 import SVG from './SVG'
+
+const ShapeSVG = ({className, dimensions, type}) => {
+  const [geometries, setGeometries] = useState([])
+  const theme = useContext(ThemeContext)
+  const {width:x, height:y} = dimensions
+
+
+  return (
+    <StyledSVG 
+      viewBox={`0 0 100 10`} 
+      dimensions={dimensions}
+      className={className}
+      preserveAspectRatio={'xMaxYMax meet'}
+      width='100%'
+      vectorEffect='non-scaling-stroke'
+    >
+      <defs>
+        <filter id="blur">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
+        </filter>
+        <linearGradient gradientUnits="userSpaceOnUse" id="grad" x1="10%" y1="0%" x2="90%" y2="0%" >
+          <stop offset="0%"   stopColor={theme.color.bgMain}/>
+          <stop offset="100%" stopColor={theme.color.neon}/>
+        </linearGradient>
+        <linearGradient id="fade-diagonal" gradientUnits="userSpaceOnUse" 
+          x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(65)">
+          <stop offset="0%" stopColor={theme.color.bgMain} stop-opacity="0"/>
+          <stop offset="40%" stopColor={theme.color.neon} stop-opacity="1"/>
+        </linearGradient>
+        <polyline id='bevel' points='0,10, 90,10, 100,0, 100,-60' stroke='url(#fade-diagonal)' vector-effect="non-scaling-stroke" />
+
+      </defs>
+      {/* spliting parts into multiple svgs allow different scalling on each axis */}
+      <use href='#bevel' />
+      <use href='#bevel' filter='url(#blur)' />
+    </StyledSVG>
+  )
+}
 
 const StyledSVG = styled(SVG).attrs(props=>{
 
 })`
   position: absolute;
-  width: ${props => props.dimensions.width}px;
-  height: ${props => props.dimensions.height}px;
-  z-index: 10;
-  stroke: ${({theme}) => theme.color.neon};
-  overflow: visible;
+  fill: none;
+  overflow: visible !important;
+  pointer-events: none;
 `
-
-const ShapeSVG = ({className, dimensions, ...rest}) => {
-  const {height, width} = dimensions
-  
-  const bevelBottom = (start, end, bevelH) => {
-    return `M${start * width},${height} L${width- bevelH}, ${height} ${width},${height-bevelH} ${width},${end*height}`
-  }
-  const bevelTop = (start, end, bevelH) => {
-    return `M${0},${start*height} L${0}, ${0+bevelH} ${0+bevelH},${0} ${end*width},${0}`
-  }
-  return (
-    <StyledSVG viewBox={`0 0 ${dimensions.width} ${dimensions.height}`} className={className} dimensions={dimensions}>
-      <defs>
-        <linearGradient id="fade" x1="40" y1="210" x2="460" y2="290" gradientUnits="userSpaceOnUse">
-          <stop stopColor="black" offset="0" />
-          <stop stopColor="red" offset="1" />
-        </linearGradient>
-      </defs>
-      <path 
-        d={bevelBottom(0.3, 0.5, 41)}
-        filter='url(#glow)'
-        strokeWidth='1'
-        fill='none'
-
-      />
-      <path
-        d={bevelTop(0.3, 0.5, 41)}
-        filter='url(#glow)'
-        strokeWidth='1'
-        fill='none'
-
-        transform='translate(-15,65)'
-      />
-    </StyledSVG>
-  )
-}
 
 export default ShapeSVG

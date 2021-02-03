@@ -3,7 +3,6 @@ import Section from './Section'
 import { Trans, useTranslation } from 'react-i18next'
 import Card from '../components/Card'
 import styled from 'styled-components';
-import Border from '../components/ShapeSVG'
 
 type Projects = Object[];
 

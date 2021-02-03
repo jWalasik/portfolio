@@ -45,7 +45,6 @@ const theme = {
     m: '1rem',
     l: '1.6rem',
     xl: '2.55rem',
-
     lineHeight: 1.6
   },
   breakpoints: {
@@ -56,6 +55,13 @@ const theme = {
     laptop: `screen and (min-width: 768px) and (min-width: 1024px)`,
     desktop: `screen and (min-width: 1024px) and (min-width: 1440px)`,
     desktopL: `screen and (min-width: 2560px)`
+  },
+  animation: {
+    fade: `
+      to {
+        opacity: 0;
+      }
+    `
   }
 }
 

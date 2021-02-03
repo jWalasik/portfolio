@@ -27,6 +27,7 @@ const HeaderWrapper = styled.header`
   align-items: center;
   width: 100%;
   top: 0;
+  z-index: 10;
 
   @media ${({theme}) => theme.breakpoints.mobileL} {
     span {

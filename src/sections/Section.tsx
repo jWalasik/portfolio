@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { ScrollContext } from '../ctx/Scroll'
 
 const Section = ({id, className, children} : {id: string, className?: string, children: React.ReactNode}) => {
+  
   const {addRef} = useContext(ScrollContext)
   const ref = useMemo(()=>addRef(id), [id])
   
@@ -20,7 +21,6 @@ const SectionWrapper = styled.section`
   align-items: center;
   font-size: ${({theme}) => theme.fontSize.body};
   line-height: ${({theme}) => theme.line.body};
-  overflow: hidden;
   padding-bottom: ${({theme}) => theme.spacing.l};
 
   @media ${({theme}) => theme.breakpoints.desktop} {
