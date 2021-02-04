@@ -4,7 +4,9 @@ import { ThemeType } from './Theme'
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   @font-face {
     font-family: 'Lato';
-    font-weight: 100 900;
+    font-weight: 100, 900;
+    font-display: auto;
+    font-style: normal;
     src: url('./fonts/lato.woff2') format('woff2');
   }
   @font-face {
@@ -26,12 +28,14 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     background-color: ${({theme}) => theme.color.bgMain};
     font-family: ${({theme}) => theme.font.body};
     font-size: ${({theme}) => theme.fontSize.body};
-    font-weight: 100;
+    font-weight: 300;
     line-height: ${({theme}) => theme.line.body};
-    overflow-x: hidden;
     color: ${({theme}) => theme.color.offwhite};
+    margin: ${({theme}) => theme.spacing.xs};
   }
-  
+  strong {
+    font-weight: 900;
+  }
   h3 {
     color: ${({theme}) => theme.color.neon};
     font-size: ${({theme}) => theme.fontSize.large};

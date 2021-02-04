@@ -24,7 +24,6 @@ const HeroWrapper = styled(Section)`
 const StyledHeader = styled.h1`
   display: flex;
   font-family: ${({theme}) => theme.font.accent};
-  font-weight: 200;
   font-size: ${({theme}) => theme.fontSize.title};
   line-height: 100%;
   letter-spacing: 0.25em;
@@ -34,7 +33,6 @@ const StyledSubtitle = styled.h2`
   line-height: 100%;
   //spcecificy boost
   && {
-    font-weight: 100;
     font-size: ${({theme})=>theme.fontSize.subtitle};
     font-family: ${({theme})=>theme.font.body};
     letter-spacing: .225em;

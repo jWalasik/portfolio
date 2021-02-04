@@ -58,9 +58,14 @@ const theme = {
   },
   animation: {
     fade: `
-      to {
-        opacity: 0;
-      }
+      {
+        to {
+          opacity: 0;
+        }
+      }      
+    `,
+    humm: `
+    {to: {opacity: 0.6}}
     `
   }
 }
