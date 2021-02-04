@@ -26,7 +26,7 @@ const theme = {
   },
   //rem set to 18px, defined at GlobalStyle
   fontSize: {
-    caption: 'clamp(14px, 16px, 18px)',
+    caption: 'clamp(14px, 14px + 1vw, 18px)',
     body: 'clamp(16px, 16px + 1vw, 22px)',
     large: 'clamp(23px, 1.333rem, 29px)',
     headline: 'clamp(29px, 5vw, 35px)',
@@ -34,17 +34,17 @@ const theme = {
     title: 'clamp(47px, 9vw, 66px)'
   },
   line: {
-    caption: `${1.5*0.875}rem`,
+    caption: `clamp(21px, , 24px)`,
     body: '1.5rem',
     large: `${1.5*1.333}rem`,
     headline: `${1.5*1.889}rem`,
   },
   spacing: {
-    xs: '0.4rem',
-    s: '0.75rem',
-    m: '1rem',
-    l: '1.6rem',
-    xl: '2.55rem',
+    xs: 'clamp(2px, 0.4vw, 8px)',
+    s: 'clamp(8px, 0.75vw, 13px)',
+    m: 'clamp(13px, 1.15vw, 21px)',
+    l: 'clamp(21px, 1.9vw, 34px)',
+    xl: 'clamp(34px, 3.05vw, 55px)',
     lineHeight: 1.6
   },
   breakpoints: {

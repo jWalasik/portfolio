@@ -45,7 +45,6 @@ const Card = ({project}) => {
           bottom = top+thumbnail.height
     const [mx,my, ...rest] = [right,top, left,top, left,bottom, right,bottom, right, parent.bottom]
 
-    console.log(`M${mx},${my} L${rest}`)
     return `M${mx},${my} L${rest}`
   }
 
@@ -99,14 +98,13 @@ const CardWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: ${({theme}) => theme.spacing.l} 0;
   transition: all .3s ease-in;
   position: relative;
   z-index: 1;
 
   .short-description {
-    color: ${({theme}) => theme.color.neon};
-    margin-top: ${({theme}) => `calc(${theme.line.body} + 2* ${theme.spacing.xs})`};
+    margin-top: 50px;
+    margin-bottom: 0;
   }
 
   .border-top {
@@ -114,7 +112,7 @@ const CardWrapper = styled.div`
     height: 30px;
     transform: scale(-1,-1);
     transform-origin: 50% 50%;
-    top: 75px;
+    top: 60px;
     left: 0;
     stroke-width: 2;
   }
@@ -181,13 +179,14 @@ const IconsWrapper = styled.div`
   }
 `
 const StyledLink = styled(Link)`
-  white-space: nowrap;
+  white-space: wrap;
   margin: ${({theme}) => theme.spacing.s};
   margin-right: auto;
 `
 
-const StyledParagraph = styled.div`
-  margin: ${({theme}) => theme.spacing.m};
+const StyledParagraph = styled.p`
+  margin: 5% min(2.5%) 5%;
+  white-space: wrap;
 `
 const StackWrapper = styled.div`
   width: 12rem; 
@@ -195,6 +194,7 @@ const StackWrapper = styled.div`
   margin-left: auto;
   padding: ${({theme}) => theme.spacing.xs};
   text-align: center;
+  position: relative;
   
   :before {
     position: absolute;
@@ -206,7 +206,7 @@ const StackWrapper = styled.div`
   }
   :after {
     position: absolute;
-    right: 10rem;
+    left: 0;
     bottom: 0;
     border-right: ${({theme}) => `calc(${theme.line.body} + 2* ${theme.spacing.xs})`} solid transparent;
     border-top: ${({theme}) => `calc(${theme.line.body} + 2* ${theme.spacing.xs})`} solid ${({theme}) => theme.color.bgMain};
