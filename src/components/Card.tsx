@@ -10,7 +10,7 @@ import LineTo from './LineTo'
 
 const Card = ({project}) => {
   const themeContext = useContext(ThemeContext)
-  const [collapsed, setCollapsed] = useState(true)
+  const [collapsed, setCollapsed] = useState(false)
   const [dimensions, setDimensions] = useState({width: 0, height: 0})
   const dimensionsRef = useRef(null)
   const [line, setLine] = useState('')

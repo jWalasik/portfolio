@@ -31,6 +31,8 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     font-weight: 300;
     line-height: ${({theme}) => theme.line.body};
     color: ${({theme}) => theme.color.offwhite};
+  }
+  main {
     margin: ${({theme}) => theme.spacing.xs};
   }
   strong {

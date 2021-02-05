@@ -40,11 +40,20 @@ const NavWrapper = styled.nav`
   letter-spacing: 2px;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 `
 const StyledUL = styled.ul`
   display: flex;
   list-style: none;
   margin: 0;
+  transition: all .6s ease-in;
+
+  .active {
+    color: ${({theme})=>theme.color.neon};
+    .icon {
+      fill: ${({theme})=>theme.color.neon};
+    }
+  }
 `
 const StyledLI = styled.li`
   font-size: ${({theme}) => theme.fontSize.body};
@@ -60,9 +69,6 @@ const StyledLI = styled.li`
     margin: auto;
     width: 20px;
     margin-right: 3px;
-  }
-  .active {
-    color: ${({theme})=>theme.color.neon};
   }
 
   @media screen and (max-width: 650px) {

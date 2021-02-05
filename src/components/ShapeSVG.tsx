@@ -8,6 +8,19 @@ const ShapeSVG = ({className, dimensions, type}) => {
   const theme = useContext(ThemeContext)
   const {width:x, height:y} = dimensions
 
+  const inputValidation = () => {
+
+  }
+  const drawBevel = (h) => {
+
+  }
+  const drawLine = (from, to) => {
+
+  }
+  const shapes = {
+    bevel: drawBevel,
+    line: drawLine
+  }
 
   return (
     <StyledSVG 
@@ -28,10 +41,10 @@ const ShapeSVG = ({className, dimensions, type}) => {
         </linearGradient>
         <linearGradient id="fade-diagonal" gradientUnits="userSpaceOnUse" 
           x1="0%" y1="0%" x2="100%" y2="0%" gradientTransform="rotate(65)">
-          <stop offset="0%" stopColor={theme.color.bgMain} stop-opacity="0"/>
-          <stop offset="40%" stopColor={theme.color.neon} stop-opacity="1"/>
+          <stop offset="0%" stopColor={theme.color.bgMain} stopOpacity="0"/>
+          <stop offset="40%" stopColor={theme.color.neon} stopOpacity="1"/>
         </linearGradient>
-        <polyline id='bevel' points='0,10, 90,10, 100,0, 100,-60' stroke='url(#fade-diagonal)' vector-effect="non-scaling-stroke" />
+        <polyline id='bevel' points='0,10, 90,10, 100,0, 100,-60' stroke='url(#fade-diagonal)' vectorEffect="non-scaling-stroke" />
 
       </defs>
       {/* spliting parts into multiple svgs allow different scalling on each axis */}

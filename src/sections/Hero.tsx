@@ -1,17 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
+import React, { useContext } from 'react'
+import styled, { keyframes } from 'styled-components'
 import Socials from '../components/Socials'
 import Section from './Section'
 import {ReactComponent as Arrow} from '../assets/arrow.svg'
+import { ScrollContext } from '../ctx/Scroll'
 
 const Hero = () => {
+  const ctx = useContext(ScrollContext)
   return (
     <HeroWrapper id='hero'>
       <StyledHeader>JACEK WALASIK</StyledHeader>
       <StyledSubtitle>WEB DEVELOPER</StyledSubtitle>
       <StyledSpan>in training</StyledSpan>
       <Socials />
-      <StyledButton><StyledArrow /></StyledButton>
+      <StyledButton id='projects' onClick={ctx.scrollTo}><StyledArrow /></StyledButton>
     </HeroWrapper>    
   )
 }
@@ -25,6 +27,7 @@ const StyledHeader = styled.h1`
   display: flex;
   font-family: ${({theme}) => theme.font.accent};
   font-size: ${({theme}) => theme.fontSize.title};
+  font-weight: 600;
   line-height: 100%;
   letter-spacing: 0.25em;
   color: ${({theme})=>theme.color.neon};
@@ -51,6 +54,7 @@ const StyledButton = styled.button`
   background-color: transparent;
   border: none;
   bottom: ${({theme}) => theme.spacing.m};
+  cursor: pointer;
 `
 // way to use styles directly on imported component
 const StyledArrow = styled(Arrow)`
@@ -59,6 +63,10 @@ const StyledArrow = styled(Arrow)`
   stroke-width: 5;
   width: 44px;
   height: 70px;
+  filter: url(#glow);
+  animation: ${keyframes({to: {opacity: .7}})} 1s alternate linear infinite;
+  margin-bottom: ${({theme}) => theme.spacing.xl} 0 ${({theme}) => theme.spacing.xl};
+  pointer-events: none;
 `
 
 export default Hero

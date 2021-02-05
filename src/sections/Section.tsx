@@ -23,6 +23,19 @@ const SectionWrapper = styled.section`
   line-height: ${({theme}) => theme.line.body};
   padding-bottom: ${({theme}) => theme.spacing.l};
 
+  @media ${({theme}) => theme.breakpoints.desktop} {
+    margin: 0 10% 0 10%;
+  }
+  @media ${({theme}) => theme.breakpoints.tablet} {
+    margin: 0 5% 0 5%;
+  }
+  @media ${({theme}) => theme.breakpoints.mobileL} {
+    margin: 0 10px 0 10px
+  }
+  @media ${({theme}) => theme.breakpoints.mobileS} {
+    margin: 3px;
+  }
+
   h2 {
     font-size: ${({theme})=>theme.fontSize.headline};
     color: ${({theme})=>theme.color.neon};
