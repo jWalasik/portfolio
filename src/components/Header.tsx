@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
@@ -6,8 +6,26 @@ import Navigator from './Navigator'
 
 const Header = () => {
   const {i18n} = useTranslation()
+  const [shown, setShown] = useState(true)
+  const [previous, setPrevious] = useState(0)
+
+  const handleScroll = () => {
+    if(previous < window.pageYOffset) {
+      setShown(false)
+    } else if (!shown) {
+      setShown(true)
+    }
+    setPrevious(window.pageYOffset)
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [previous, shown])
+
   return (
-    <HeaderWrapper >
+    <HeaderWrapper shown={shown}>
       <span>jWalasik</span>
 
       <Navigator />
@@ -29,33 +47,18 @@ const Header = () => {
   )
 }
 
-const HeaderWrapper = styled.header`
+const HeaderWrapper = styled.header.attrs(props => {
+})`
   background-color: ${({theme}) => theme.color.shadow};
-  position: sticky;
+  position: fixed;
   display: flex;
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  top: 0;
+  top: ${props => props.shown ? 0 : '-350px'};
   z-index: 10;
-  /* border-bottom: 1px solid transparent;
-  border-image: ${({theme}) => `linear-gradient(to left, ${theme.color.neon}, transparent)`};
-  border-image-slice: 1;
-  outline-offset: -5px; */
+  transition: all .2s ease-out;
   
-  /* :after {
-    top: 100%;
-    right: 2px;
-    width: 100%;
-    height: 50vh;
-    content: '';
-    position: absolute;
-    border-right: 1px solid transparent;
-    border-image: ${({theme}) => `linear-gradient(to bottom, ${theme.color.neon}, transparent)`};
-    border-image-slice: 1;
-    z-index: -1;
-    pointer-events:none;
-  } */
   .bottom {
     position: absolute;
     pointer-events: none;

@@ -34,6 +34,7 @@ const StyledHeader = styled.h1`
 `
 const StyledSubtitle = styled.h2`  
   line-height: 100%;
+  font-weight: 100;
   //spcecificy boost
   && {
     font-size: ${({theme})=>theme.fontSize.subtitle};

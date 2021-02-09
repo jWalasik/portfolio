@@ -12,10 +12,10 @@ const Navigator = () => {
 
   return (
     <NavWrapper>
-      <StyledUL>
+      <StyledUL>        
         <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'projects' ? 'active' : undefined} id='projects'>
           <Projects id='projects' className='icon'/>
-          <Trans i18nKey='nav:projects' ></Trans>     
+          <Trans i18nKey='nav:projects' ></Trans>
         </StyledLI>
 
         <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'about' ? 'active' : undefined} id='about'>
@@ -45,24 +45,37 @@ const NavWrapper = styled.nav`
 const StyledUL = styled.ul`
   display: flex;
   list-style: none;
-  margin: 0;
+  margin: 0px;
   transition: all .6s ease-in;
+
+  @media screen and (max-width: 768px) {
+
+  }
 
   .active {
     color: ${({theme})=>theme.color.neon};
+
     .icon {
       fill: ${({theme})=>theme.color.neon};
     }
   }
 `
 const StyledLI = styled.li`
-  font-size: ${({theme}) => theme.fontSize.body};
+  font-size: ${({theme}) => theme.fontSize.caption};
   height: 44px;
   margin: 3px 5px 3px 5px;
   display: flex;
   justify-content: space-around;
   align-items: center;
   transition: all .3s;
+
+  .border {
+    position: absolute;
+    width: 30%;
+    height: 40px;
+    bottom: 0;
+    stroke: ${({theme})=>theme.color.neon};
+  }
 
   .icon {
     fill: ${({theme})=>theme.color.offwhite};
