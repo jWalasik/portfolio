@@ -28,7 +28,7 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     background-color: ${({theme}) => theme.color.bgMain};
     font-family: ${({theme}) => theme.font.body};
     font-size: ${({theme}) => theme.fontSize.body};
-    font-weight: 300;
+    font-weight: 100;
     line-height: ${({theme}) => theme.line.body};
     color: ${({theme}) => theme.color.offwhite};
   }

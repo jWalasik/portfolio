@@ -2,17 +2,17 @@
   "header": "Tech Stack",
   "description": "I love learning and testing new technologies. While not limited to, the ones listed below are my favorites.",
   "techs": {
-    "Core": [
+    "{ Core }": [
       "I work predominantly with <strong>Javascript</strong>, its by far my strongest language. Lately I've adopted <strong>Typescript</strong> to weed out bugs early.", 
       "Code maintainability and quality are parmount to me. I'm using <strong>Jest</strong> and <strong>Enzyme</strong> for unit and integration tests.", "I always rely on <strong>GIT</strong> version control system and try to document my code base properly", "I can customize <strong>Webpack</strong> configurations and I'm proficient with <strong>NPM</strong> and <strong>Yarn</strong> package managers"
     ],
-    "Frontend": [
+    "<Frontend/>": [
       "React is my main area of expertise. I've used it in pretty every flavor: CSR, SSR, Native. I'm keeping up with all the latest features and most popular libraries - Hooks, Suspense, Redux etc.", "In regard to design I'm familar with wide variety of options. While I prefer CSS-in-JS like Styled-Components, I'm perfectly fine with Sass or templating engines like EJS. I adhere to rules of semantic HTML5, Accessibility and BEM naming convention."
     ],
-    "Backend": [
+    "[Backend]": [
       "My node.js knowledge, allows me to write efficient servers and solving complex issues.", "I can proficiently use Express and Apollo frameworks. I'm fluent in asynchronous programming and creation of REST and GraphQL APIs.", "I understand key aspects of Web Security. Worked with popular methods of Authentication and Authorization. I've acquired knowledge of networks and HTTP/HTTPS protocols.", "I'm familiar with popular architectural patterns: Monolith, MVC, SOA, Microservices, Serverless."
     ],
-    "Databases": [
+    "(Databases)": [
       "Depending on needs, I'm capable of building and maintaining SQL and noSQL databases.", "Out of non-relational databases, I'm most comfortable with MongoDB with Mongoose ODM. For relational databases I've used MySQL along with Sequelize library.", "Other than that I've had great experience with Firebase platform."
     ]
   },  

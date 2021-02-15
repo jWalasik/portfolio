@@ -9,7 +9,7 @@
       <path d="M10 90 L64.9519052838329 120 L120 90" />
     </g>
   </defs>
-  <use xlink:href="#segment" />
-  <use xlink:href="#segment" transform="translate(0,-50)" />
-  <use xlink:href="#segment" transform="translate(0,-100)"/>
+  <use id='first' xlink:href="#segment" />
+  <use id='second' xlink:href="#segment" transform="translate(0,-50)" />
+  <use id='third' xlink:href="#segment" transform="translate(0,-100)"/>
 </svg>

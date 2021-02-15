@@ -7,10 +7,10 @@ const theme = {
   color: {
     bgMain: 'rgb(25, 27, 25)',
     bgNegative: 'rgb(197, 231, 208)',
-    bgAction: 'rgb(51, 153, 68)',
 
-    offwhite: 'rgb(247, 247, 247)',
+    offwhite: 'rgb(230, 230, 230)',
     neon: 'rgb(40, 255, 40)',
+    textSpecial: 'rgb(40, 200, 40)',
     negative: 'rgb(240, 65, 71)',
 
     action: 'rgb(40, 255, 40)',

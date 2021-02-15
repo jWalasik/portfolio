@@ -1,16 +1,14 @@
 import React, { useLayoutEffect, useState, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
-
-import {ReactComponent as Git} from '../assets/icons/github.svg'
-import {ReactComponent as Live} from '../assets/icons/website.svg'
 import {ReactComponent as Arrow} from '../assets/arrow.svg'
 import ShapeSVG from './ShapeSVG'
 import LineTo from './LineTo'
+import CardThumbnail from './CardThumbnail'
 
 const Card = ({project}) => {
   const themeContext = useContext(ThemeContext)
-  const [collapsed, setCollapsed] = useState(false)
+  const [expanded, setExpanded] = useState(false)
   const [dimensions, setDimensions] = useState({width: 0, height: 0})
   const dimensionsRef = useRef(null)
   const [line, setLine] = useState('')
@@ -49,25 +47,22 @@ const Card = ({project}) => {
   }
 
   return (
-    <CardWrapper ref={dimensionsRef} onClick={()=>setCollapsed(!collapsed)}>
-      <StyledHeader>{project.title}</StyledHeader>
+    <>
+    <StyledHeader>{project.title}</StyledHeader>
+    <CardWrapper ref={dimensionsRef} onClick={()=>setExpanded(!expanded)}>
+      
       <ShapeSVG 
         type='bevel-top'
         className='border-top'
         dimensions={dimensions}
       />   
-      <StyledParagraph className='short-description'>{project.description.short}</StyledParagraph>
-
-      <ExpandableWrapper className={collapsed? 'collapsed' : ''} collapsed={collapsed}>
+      <StyledParagraphFirst className='short-description'>{project.description.short}</StyledParagraphFirst>
+      {/* <StyledArrow fill='none' stroke={themeContext.color.neon} width='44px'  /> */}
+      
+      <ExpandableWrapper expanded={expanded}>
         <StyledParagraph>{project.description.features}</StyledParagraph>
         
-        <StyledThumbnail id={`${project.title}-thumbnail`} >
-          <IconsWrapper>
-            <a href={project.github} onClick={(e)=>e.stopPropagation()}><Git /></a>
-            <a href={project.live} onClick={(e)=>e.stopPropagation()}><Live /></a>
-          </IconsWrapper>
-          <img src={project.image? project.image : 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'}  alt={project.title} />
-        </StyledThumbnail>
+        <CardThumbnail {...project} />
         
         {project.features}
 
@@ -90,8 +85,13 @@ const Card = ({project}) => {
         dimensions={dimensions}
     />
     </CardWrapper>
+    </>
   )
 }
+const StyledHeader = styled.h3`
+  margin-left: 0px;
+  margin-bottom: ${({theme}) => theme.spacing.m};
+`
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -101,18 +101,15 @@ const CardWrapper = styled.div`
   transition: all .3s ease-in;
   position: relative;
   z-index: 1;
-
-  .short-description {
-    margin-top: 50px;
-    margin-bottom: 0;
-  }
+  margin-bottom: ${({theme}) => theme.spacing.xl};
+  padding-top: 10px;
 
   .border-top {
     position: absolute;
     height: 30px;
     transform: scale(-1,-1);
     transform-origin: 50% 50%;
-    top: 60px;
+    top: 0;
     left: 0;
     stroke-width: 2;
   }
@@ -123,12 +120,23 @@ const CardWrapper = styled.div`
     stroke-width: 2;
     overflow: visible !important;
   }
+`
+const StyledArrow = styled(Arrow)`
+  position: absolute;
+  transform: rotate(30deg) translate(-100%);
+  width: 40px;
+  #first {
 
-  .collapsed {
-    max-height: 2000px;
-    opacity: 1;
+  }
+  #second {
+    visibility: hidden;
+  }
+  #third {
+    transform: rotate(180deg);
   }
 `
+
+
 const ExpandableWrapper = styled.div.attrs(props=>{
 })`
   display: flex;  
@@ -136,48 +144,11 @@ const ExpandableWrapper = styled.div.attrs(props=>{
   justify-content: space-around;
   align-items: center;
   transition: all 1s ease;
-  max-height: 0px;
+  max-height: ${props => props.expanded ? '2000px' : 0};
   overflow: hidden;
-  opacity: 0;
+  opacity: ${props => props.expanded ? 1 : 0};
 `
 
-const StyledHeader = styled.h3`
-  margin-left: 0px;
-`
-
-const StyledThumbnail = styled.div`
-  position: relative;
-  width: ${({theme}) => `calc( 100% - 2*(${theme.line.body} + 2* ${theme.spacing.xs}))`};
-  height: 350px;
-  border: 1px solid ${({theme}) => theme.color.neon};
-  z-index: 1;
-
-  @media screen and (max-width: 768px) {
-    min-width: 95%;
-  }
-
-  img {
-    object-fit: cover;
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-  }
-`
-
-const IconsWrapper = styled.div`
-  display: flex;
-  margin-left: auto;
-  position: absolute;
-  right: 2%;
-  top: 5%;
-  
-  svg {
-    margin: ${({theme}) => theme.spacing.xs};
-    height: 44px;
-    fill: ${({theme}) => theme.color.neon};
-    filter: drop-shadow(0 0 15px black);
-  }
-`
 const StyledLink = styled(Link)`
   white-space: wrap;
   margin: ${({theme}) => theme.spacing.s};
@@ -188,6 +159,29 @@ const StyledParagraph = styled.p`
   margin: 5% min(2.5%) 5%;
   white-space: wrap;
 `
+const StyledParagraphFirst = styled(StyledParagraph)`
+  margin-bottom: 0;
+  margin: ${({theme}) => theme.spacing.m};
+  position: relative;
+
+  /* &:before,:after {
+    color: ${({theme}) => theme.color.neon};
+  }
+  &:before {
+    transform: rotate(40deg);
+    position: absolute;
+    content: '⇱';
+    top: 100%;
+    right: 50%;
+  }
+  &:after {
+    position: absolute;
+    content: '⇱';
+    transform: rotate(-140deg);
+    bottom: 100%;
+    left: calc(50% - 18px);
+  } */
+` 
 const StackWrapper = styled.div`
   width: 12rem; 
   background-color: ${({theme}) => theme.color.shadow};

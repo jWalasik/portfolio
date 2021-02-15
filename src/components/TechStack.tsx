@@ -9,14 +9,13 @@ const TechStack = () => {
   
   return (
     <StackWrapper>
-      <DeviceSVG />
+      {/* <DeviceSVG /> */}
       <Skills />   
     </StackWrapper>
   )
 }
 
 const StackWrapper = styled.div`
-  border: 1px solid blue;
   width: 100%;
   display: flex;
   flex-direction: column;

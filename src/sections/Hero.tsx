@@ -10,8 +10,11 @@ const Hero = () => {
   return (
     <HeroWrapper id='hero'>
       <StyledHeader>JACEK WALASIK</StyledHeader>
-      <StyledSubtitle>WEB DEVELOPER</StyledSubtitle>
-      <StyledSpan>in training</StyledSpan>
+      <StyledSubtitle>
+        WEB DEVELOPER
+        <StyledSpan>in training</StyledSpan>
+      </StyledSubtitle>
+
       <Socials />
       <StyledButton id='projects' onClick={ctx.scrollTo}><StyledArrow /></StyledButton>
     </HeroWrapper>    
@@ -35,6 +38,7 @@ const StyledHeader = styled.h1`
 const StyledSubtitle = styled.h2`  
   line-height: 100%;
   font-weight: 100;
+  position: relative;
   //spcecificy boost
   && {
     font-size: ${({theme})=>theme.fontSize.subtitle};
@@ -46,9 +50,11 @@ const StyledSubtitle = styled.h2`
 `
 const StyledSpan = styled.span`
   font-size: 14px;
+  letter-spacing: 0.1em;
   color: #888888;
-  margin-left: 200px;
-  margin-top: -25px;
+  position: absolute;
+  top: 100%;
+  right: 0;
 `
 const StyledButton = styled.button`
   position: absolute;

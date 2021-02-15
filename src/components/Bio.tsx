@@ -62,11 +62,12 @@ const Bio = () => {
 
 const BioWrapper = styled.div`
   strong {
-    color: ${({theme}) => theme.color.neon};
+    color: ${({theme}) => theme.color.offwhite};
   }
   a {
-    text-decoration: underline;
-    animation: ${({theme}) => keyframes({to: {opacity: 0.6}})} 1s linear alternate infinite;
+    :hover {
+      border-bottom: 1px solid ${({theme}) => theme.color.neon};
+    }
   }
 `
 
