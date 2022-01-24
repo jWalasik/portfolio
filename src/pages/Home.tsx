@@ -1,25 +1,28 @@
 import React from 'react';
-import Footer from '../components/Footer';
-import Header from '../components/Header';
-import About from '../sections/About';
-import Contact from '../sections/Contact';
-import Hero from '../sections/Hero';
-import Projects from '../sections/Projects';
+import styled from 'styled-components';
+import Footer from '../components/Atoms/Footer';
+import About from '../components/Organisms/About';
+import Contact from '../components/Organisms/Contact';
+import Header from '../components/Organisms/Header';
+import Hero from '../components/Organisms/Hero';
+import Projects from '../components/Organisms/Projects';
 
 function Home() {
   return (
     <>
       <Header />
-      <main>
+      <MainContainer>
         <Hero />
         <Projects />
         <About />
         <Contact />
-      </main>
-
+      </MainContainer>
       <Footer />
     </>
   );
 }
+
+const MainContainer = styled.main`  
+`
 
 export default Home;

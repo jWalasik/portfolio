@@ -2,10 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Trans, useTranslation } from 'react-i18next'
 
-import {ReactComponent as Database} from '../assets/database.svg'
-import {ReactComponent as Backend} from '../assets/gear.svg'
-import {ReactComponent as Frontend} from '../assets/frontend.svg'
-import {ReactComponent as Core} from '../assets/laptop.svg'
+import {ReactComponent as Database} from '../../assets/database.svg'
+import {ReactComponent as Backend} from '../../assets/gear.svg'
+import {ReactComponent as Frontend} from '../../assets/frontend.svg'
+import {ReactComponent as Core} from '../../assets/laptop.svg'
 
 type Skills = object
 
@@ -33,11 +33,8 @@ const Skills = () => {
         <Trans>
           I work predominantly in 
           <strong>Javascript</strong>
-          , it's by far my strongest language. Lately I've adopted
-          <strong>Typescript</strong>
-          for better productivity.
-          Code quality and maintainablity are paramount to me, so I always do my best to ensure my work is properly
-          <strong>tested and documented</strong>
+          along with Typescript for bigger projects.
+          
         </Trans> 
         </StyledParagraph>
       </TechWrapper>

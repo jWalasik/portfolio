@@ -1,7 +1,7 @@
 import * as React from 'react'
 import styled, {keyframes} from 'styled-components'
 import { Trans, useTranslation } from 'react-i18next'
-import { ScrollContext } from '../ctx/Scroll'
+import { ScrollContext } from '../../ctx/Scroll'
 
 const Bio = () => {
   const ctx = React.useContext(ScrollContext)

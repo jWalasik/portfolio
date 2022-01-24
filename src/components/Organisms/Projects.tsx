@@ -1,8 +1,11 @@
 import React from 'react'
-import Section from './Section'
+import Section from '../Atoms/Section'
 import { Trans, useTranslation } from 'react-i18next'
-import Card from '../components/Card'
 import styled from 'styled-components';
+import Card from './Card';
+import Heading from '../Molecules/Heading';
+
+import {ReactComponent as GithubIcon} from '../../assets/icons/github.svg'
 
 type Projects = Object[];
 
@@ -13,10 +16,12 @@ const Projects = () => {
   
   return (
     <Section id='projects'>
-      <StyledHeader><Trans i18nKey='projects:header'></Trans></StyledHeader>
+      <Heading i18nKey='projects:header'>
+        <a href="https://github.com/elPaleniozord" ><GithubIcon /></a>
+      </Heading>
+      
       <StyledParagraph>
-        Welcome my humble gallery, showcasing projects I've been working on lately. 
-        {/* <Trans i18nKey='projects:description'></Trans> */}
+        <Trans i18nKey='projects:description'></Trans>
       </StyledParagraph>
       
       {list}

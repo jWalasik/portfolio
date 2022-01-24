@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 const Footer = () => {
   return (
-    <FooterWrapper >Coded and designed by Jacek Walasik</FooterWrapper>
+    <FooterWrapper>Coded and designed by Jacek Walasik</FooterWrapper>
   )
 }
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { useTranslation } from 'react-i18next'
 
-import Navigator from './Navigator'
+import Menu from '../Molecules/Menu'
 
 const Header = () => {
   const {i18n} = useTranslation()
@@ -28,7 +28,7 @@ const Header = () => {
     <HeaderWrapper shown={shown}>
       <span>jWalasik</span>
 
-      <Navigator />
+      <Menu />
       
       <ButtonWrapper onClick={()=>i18n.changeLanguage(i18n.language==='en'?'pl':'en')} >
         {i18n.language==='en'?'PL':'EN'}
@@ -55,6 +55,7 @@ const HeaderWrapper = styled.header.attrs(props => {
   justify-content: space-around;
   align-items: center;
   width: 100%;
+  height: 50px;
   top: ${props => props.shown ? 0 : '-350px'};
   z-index: 10;
   transition: all .2s ease-out;
@@ -66,10 +67,19 @@ const HeaderWrapper = styled.header.attrs(props => {
     top: 50px;
     right: 5px;
   }
-  @media ${({theme}) => theme.breakpoints.mobileL} {
+  @media ${({theme}) => theme.breakpoints.mobile} {
     span {
       display:none;
     }
+  }
+  @media ${({theme}) => theme.breakpoints.desktop} {
+    padding: 0 ${({theme}) => theme.spacing.xl} 0 ;
+  }
+  @media ${({theme}) => theme.breakpoints.tablet} {
+    padding: 0 ${({theme}) => theme.spacing.l} 0;
+  }
+  @media ${({theme}) => theme.breakpoints.mobile} {
+    padding: 0;
   }
   span {
     margin-left:  ${({theme}) => theme.spacing.s};

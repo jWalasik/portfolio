@@ -1,15 +1,10 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import Skills from '../Molecules/Skills'
 
-
-import DeviceSVG from './DeviceSVG'
-import Skills from './Skills'
-
-const TechStack = () => {
-  
+const TechStack = () => {  
   return (
     <StackWrapper>
-      {/* <DeviceSVG /> */}
       <Skills />   
     </StackWrapper>
   )

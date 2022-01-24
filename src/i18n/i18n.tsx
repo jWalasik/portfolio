@@ -4,6 +4,8 @@ import { I18nextProvider } from 'react-i18next'
 
 import translationEN from './locales/en/translation.json'
 import translationPL from './locales/pl/translation.json'
+import heroEN from './locales/en/hero.json'
+import heroPL from './locales/pl/hero.json'
 import aboutEN from './locales/en/about.json'
 import aboutPL from './locales/pl/about.json'
 import navEN from './locales/en/nav.json'
@@ -19,6 +21,7 @@ import stackPL from './locales/pl/stack.json'
 const resources = {
   en: {
     translation: translationEN,
+    hero: heroEN,
     about: aboutEN,
     contact: contactEN,
     nav: navEN,
@@ -27,6 +30,7 @@ const resources = {
   },
   pl: {
     translation: translationPL,
+    hero: heroPL,
     about: aboutPL,
     contact: contactPL,
     nav: navPL,

@@ -1,10 +1,10 @@
 import React, { useLayoutEffect, useState, useRef, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { ThemeContext } from 'styled-components'
-import {ReactComponent as Arrow} from '../assets/arrow.svg'
-import ShapeSVG from './ShapeSVG'
-import LineTo from './LineTo'
-import CardThumbnail from './CardThumbnail'
+import {ReactComponent as Arrow} from '../../assets/arrow.svg'
+import ShapeSVG from '../Molecules/ShapeSVG'
+import LineTo from '../Atoms/LineTo'
+import CardThumbnail from '../Molecules/CardThumbnail'
 
 const Card = ({project}) => {
   const themeContext = useContext(ThemeContext)
@@ -30,12 +30,12 @@ const Card = ({project}) => {
         height: dimensionsRef.current.offsetHeight
       })
     })
-  }, [])
+  }, [dimensionsRef])
 
   const drawLine = (target) => {
     const parent = dimensionsRef.current.getBoundingClientRect()
     const thumbnail = document.getElementById(target+'-thumbnail').getBoundingClientRect()
-    console.log(thumbnail.width, thumbnail.right, parent.width, parent.right)
+
     //relative bounds
     const top = thumbnail.top - parent.top,
           left = thumbnail.left - parent.left,

@@ -1,15 +1,7 @@
 import React, {useEffect, useReducer, useState} from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
-import {ReactComponent as Mail} from '../assets/icons/mail.svg'
-
-const reducer = (state, action) => {
-  switch(action.type) {
-    case 'input': 
-      console.log(action)
-      return action
-  }
-}
+import {ReactComponent as Mail} from '../../assets/icons/mail.svg'
 
 interface Fields {
   [key:string]: any

@@ -1,17 +1,17 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { Trans } from 'react-i18next'
-import {ScrollContext} from '../ctx/Scroll'
+import {ScrollContext} from '../../ctx/Scroll'
 
-import {ReactComponent as Mail} from '../assets/icons/mail.svg'
-import {ReactComponent as About} from '../assets/icons/person.svg'
-import {ReactComponent as Projects} from '../assets/icons/projects.svg'
+import {ReactComponent as Mail} from '../../assets/icons/mail.svg'
+import {ReactComponent as About} from '../../assets/icons/person.svg'
+import {ReactComponent as Projects} from '../../assets/icons/projects.svg'
 
-const Navigator = () => {
+const Menu = () => {
   const ctx = useContext(ScrollContext)
 
   return (
-    <NavWrapper>
+    <MenuWrapper>
       <StyledUL>        
         <StyledLI onClick={ctx.scrollTo} className={ctx.activeLink === 'projects' ? 'active' : undefined} id='projects'>
           <Projects id='projects' className='icon'/>
@@ -28,11 +28,11 @@ const Navigator = () => {
           <Trans i18nKey='nav:contact' ></Trans>          
         </StyledLI>
       </StyledUL>
-    </NavWrapper>
+    </MenuWrapper>
   )
 }
 
-const NavWrapper = styled.nav`
+const MenuWrapper = styled.menu`
   cursor: pointer;
   height: 50px;
   margin-left: auto;
@@ -89,4 +89,4 @@ const StyledLI = styled.li`
   }  
 `
 
-export default Navigator
+export default Menu

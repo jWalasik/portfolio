@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { useState, useCallback, useRef, useEffect, useContext } from 'react'
 import styled, {ThemeContext} from 'styled-components'
-import SVG from './SVG'
+import SVG from '../Atoms/SVG'
 
 const ShapeSVG = ({className, dimensions, type}) => {
   const [geometries, setGeometries] = useState([])

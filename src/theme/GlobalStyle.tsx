@@ -4,7 +4,7 @@ import { ThemeType } from './Theme'
 const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   @font-face {
     font-family: 'Lato';
-    font-weight: 100, 900;
+    font-weight: 100, 200, 300, 400, 600, 900;
     font-display: auto;
     font-style: normal;
     src: url('./fonts/lato.woff2') format('woff2');
@@ -12,7 +12,8 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   @font-face {
     font-family: 'Titillium Web';
     font-style: normal;
-    font-weight: 100 900;
+    font-display: auto;
+    font-weight: 100,200,300,400,600,900;
     src: url('./fonts/titillium-web.woff2') format('woff2')
   }
   * {
@@ -32,19 +33,9 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
     line-height: ${({theme}) => theme.line.body};
     color: ${({theme}) => theme.color.offwhite};
   }
-  main {
-    margin: ${({theme}) => theme.spacing.xs};
-  }
+  
   strong {
     font-weight: 900;
-  }
-  h3 {
-    color: ${({theme}) => theme.color.neon};
-    font-size: ${({theme}) => theme.fontSize.large};
-    font-family: ${({theme}) => theme.font.accent};
-    font-weight: 100;
-    margin: ${({theme}) => theme.spacing.l + ' auto 0 '+theme.spacing.l};
-    margin-right: auto;
   }
 
   a {

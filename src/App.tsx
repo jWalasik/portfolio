@@ -3,7 +3,7 @@ import {ReactComponent as Filters} from './assets/filters.svg'
 
 import { Switch, Route } from 'react-router-dom'
 import GlobalStyle from './theme/GlobalStyle'
-import Loader from './components/Loader'
+import Loader from './components/Molecules/Loader'
 import FourOhFour from './pages/FourOhFour'
 import Home from './pages/Home'
 import Providers from './Providers';

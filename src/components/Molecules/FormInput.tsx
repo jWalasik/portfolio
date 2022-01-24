@@ -2,7 +2,7 @@ import { url } from 'inspector'
 import React from 'react'
 import styled from 'styled-components'
 import {ReactComponent as Border} from '../assets/bevel.svg'
-import BeveledBorder from './BevelBorder'
+import BeveledBorder from '../Atoms/BevelBorder'
 
 interface Values {
   id: string,

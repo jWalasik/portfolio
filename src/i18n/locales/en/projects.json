@@ -23,7 +23,7 @@
     },
     {
       "title": "strongLyfts",
-      "stack": "React, Firebase",
+      "stack": "React, Redux, Firebase",
       "github": "https://github.com/elPaleniozord/strongLyfts",
       "live": "https://gentle-eyrie-84798.herokuapp.com/",
       "description": {

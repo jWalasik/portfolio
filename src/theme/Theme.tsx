@@ -14,7 +14,7 @@ const theme = {
     negative: 'rgb(240, 65, 71)',
 
     action: 'rgb(40, 255, 40)',
-    actionDark: ``,
+    actionDark: `rgba(0, 255, 0, 0.5)`,
     actionLight: ``,
 
     shadow: `rgba(0,0,0,.5)`,
@@ -30,8 +30,8 @@ const theme = {
     body: 'clamp(16px, 16px + 1vw, 22px)',
     large: 'clamp(23px, 1.333rem, 29px)',
     headline: 'clamp(29px, 5vw, 35px)',
-    subtitle: 'clamp(28px, 5vw, 43px)',
-    title: 'clamp(47px, 9vw, 66px)'
+    subtitle: 'clamp(28px, 5vw, 40px)',
+    title: 'clamp(47px, 8vw, 80px)'
   },
   line: {
     caption: `clamp(21px, , 24px)`,
@@ -48,13 +48,15 @@ const theme = {
     lineHeight: 1.6
   },
   breakpoints: {
-    mobileS: `screen and (max-width: 320px)`,
-    mobileM: `screen and (min-width: 320px) and (max-width: 375px)`,
-    mobileL: `screen and (min-width: 375px) and (max-width: 425px)`,
-    tablet: `screen and (min-width: 425px) and (max-width: 768px)`,
-    laptop: `screen and (min-width: 768px) and (min-width: 1024px)`,
-    desktop: `screen and (min-width: 1024px) and (min-width: 1440px)`,
-    desktopL: `screen and (min-width: 2560px)`
+    mobile: `screen and (max-width: 425px)`,
+    tablet: `screen and (min-width: 426px) and (max-width: 1024px)`,
+    desktop: `screen and (min-width: 1024px)`,
+    // mobileM: `screen and (min-width: 320px) and (max-width: 375px)`,
+    // mobileL: `screen and (min-width: 375px) and (max-width: 425px)`,
+    // tablet: `screen and (min-width: 425px) and (max-width: 768px)`,
+    // laptop: `screen and (min-width: 768px) and (min-width: 1024px)`,
+    // desktop: `screen and (min-width: 1024px) and (min-width: 1440px)`,
+    // desktopL: `screen and (min-width: 2560px)`
   },
   animation: {
     fade: `

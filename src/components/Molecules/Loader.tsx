@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import {ReactComponent as Hexagon} from '../assets/hexagon.svg'
+import {ReactComponent as Hexagon} from '../../assets/hexagon.svg'
 
 const Loader = ({children}: {children?: React.ReactNode}) => {
   
   return (
     <LoaderWrapper>
-      <Spinner />      
-
+      <Spinner />
       {children}
     </LoaderWrapper>
   )

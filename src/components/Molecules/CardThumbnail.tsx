@@ -1,8 +1,8 @@
 import * as React from 'react'
 import styled from 'styled-components'
 
-import {ReactComponent as Git} from '../assets/icons/github.svg'
-import {ReactComponent as Live} from '../assets/icons/website.svg'
+import {ReactComponent as Git} from '../../assets/icons/github.svg'
+import {ReactComponent as Live} from '../../assets/icons/website.svg'
 const placeholderURL = 'https://user-images.githubusercontent.com/194400/49531010-48dad180-f8b1-11e8-8d89-1e61320e1d82.png'
 
 const CardThumbnail = ({image, title, github, live}) => {

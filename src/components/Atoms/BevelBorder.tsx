@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import {ReactComponent as Bevel} from '../assets/bevel.svg'
-import {ReactComponent as Line} from '../assets/line.svg'
+import {ReactComponent as Bevel} from '../../assets/bevel.svg'
+import {ReactComponent as Line} from '../../assets/line.svg'
 
 const BeveledBorder = (color) => {
   return (
