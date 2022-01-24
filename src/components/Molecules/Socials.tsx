@@ -1,14 +1,14 @@
 import React from 'react'
-import { GithubIcon, CodepenIcon, LinkedinIcon, CodewarsIcon } from '../../assets/icons/icons'
 import styled from 'styled-components'
+import Icon from '../Atoms/Icon'
 
 const Socials = () => {
   return (
     <StyledDiv>
-      <GithubIcon />
-      <CodepenIcon />
-      <LinkedinIcon />
-      <CodewarsIcon />
+      <Icon href={'https://github.com/elPaleniozord'} variant={'github'} />
+      <Icon href={'https://codepen.io/elPaleniozord'} variant={'codepen'} />
+      <Icon href={'https://www.linkedin.com/in/jacek-walasik-4453a2141/'} variant={'linked'} />
+      <Icon href={'https://www.codewars.com/users/elPaleniozord'} variant={'codewars'} />
     </StyledDiv>
   )
 }
@@ -20,19 +20,6 @@ const StyledDiv = styled.div`
   align-items: center;
   justify-content: space-evenly;
 
-  &>svg {
-    width: 44px;
-    height: 44px;
-    fill: ${({theme})=> theme.color.offwhite};
-    opacity: .7;
-
-    &:hover{
-      fill: ${({theme})=> theme.color.neon};
-      cursor: pointer;
-      opacity: 1;
-      filter: url(#glow);
-    }
-  }
   @media ${({theme}) => theme.breakpoints.desktop} {
     grid-area: 3/1/6/1;
   }
@@ -42,11 +29,6 @@ const StyledDiv = styled.div`
   @media ${({theme}) => theme.breakpoints.mobile} {
     grid-area: 4/2/6/3;
     flex-direction: row;
-    
-    &>svg {
-      width: 36px;
-      height: 36px;
-    }
   }
 `
 

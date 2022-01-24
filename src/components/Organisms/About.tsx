@@ -5,12 +5,13 @@ import styled from 'styled-components'
 import Bio from './Bio'
 import TechStack from './TechStack'
 import Heading from '../Molecules/Heading'
+import IconLink from '../Atoms/Icon'
 
 const About = () => {
   const {t} = useTranslation('about')
   return (
     <Section id='about'>
-      <Heading i18nKey='about:header'></Heading>
+      <Heading i18nKey='about:header'><IconLink href={process.env.PUBLIC_URL + '/pdfs/Jacek_Walasik_Resume_Dev.pdf'} variant='resume'/></Heading>
 
       <Bio />
       <TechStack />

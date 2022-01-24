@@ -26,9 +26,11 @@ const SectionWrapper = styled.section`
 
   @media ${({theme}) => theme.breakpoints.desktop} {
     padding: ${({theme}) => theme.spacing.xl};
+    margin: ${({theme}) => theme.spacing.xl} 10% ${({theme}) => theme.spacing.xl} 10%;
   }
   @media ${({theme}) => theme.breakpoints.tablet} {
     padding: ${({theme}) => theme.spacing.l};
+    margin: ${({theme}) => theme.spacing.xl} 5% ${({theme}) => theme.spacing.xl} 5%;
   }
   @media ${({theme}) => theme.breakpoints.mobile} {
     padding: ${({theme}) => theme.spacing.s};

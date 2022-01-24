@@ -23,21 +23,25 @@ const HeadingWrapper = styled.h2`
   align-items: center;
   width: 100%;
   margin: ${({theme}) => theme.spacing.m};
+  font-size: ${({theme}) => theme.fontSize.headline};;
+  font-weight: 100;
+  letter-spacing: .225em;
 `
 const TextWrapper = styled.span`
-
+  width: auto;
 `
 
 const Line = styled.hr`
   flex-grow: .8;
+
+  @media ${({theme}) => theme.breakpoints.mobile} {
+    display: none;
+  }
 `
 
 const IconWrapper = styled.div`
-  svg {
-    height: 44px;
-    width: 44px;
-    fill: ${({theme}) => theme.color.neon}
-  }
+  display: flex;
+  align-items: center;
 `
 
 export default Heading

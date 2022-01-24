@@ -1,9 +1,9 @@
 {
-  "header": "About Me",
+  "header": "ABOUT ME",
   "description": {
-    "introduction": "My name is Jacek Walasik and I am self-taught <strong>Javascript</strong> coder.",
-    "experience": "I've been tinkering with <strong>Web Developement</strong> for <strong>over 2 years</strong>. All my projects are available on <5>GitHub</5>, for smaller experiments and some cool snippets check out my <7>Codepen</7>.",
-    "skills": "I specialize in <strong>Full Stack</strong> solutions. I'm capable of solving complex problems, covering whole technological stack. I can build fast <strong>websites</strong> and <strong>applications</strong>, <strong>servers</strong> and <strong>databases</strong>. For more details about my skills, check <strong>this section</strong>.",
-    "goals": "I'm constantly searching for growth opportunities and new challenges. I would love to commit fully to programming and apply my skills and knowledge as a <1>Javascript Developer</1>. If you have an interesting project going and could use another developer feel free to <3>reach out</3> to me."
+    "introduction": "My name is Jacek Walasik and I am Full Stack Javascript Developer",
+    "experience": "I've been coding hobbistically for about 4 years. Currently working on personal projects, involving building and maintaining Day Trading software.",
+    "skills": "I work predominantly",
+    "goals": "Recently I've started "
   }
 }

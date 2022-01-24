@@ -6,6 +6,7 @@ import Card from './Card';
 import Heading from '../Molecules/Heading';
 
 import {ReactComponent as GithubIcon} from '../../assets/icons/github.svg'
+import IconLink from '../Atoms/Icon';
 
 type Projects = Object[];
 
@@ -17,7 +18,7 @@ const Projects = () => {
   return (
     <Section id='projects'>
       <Heading i18nKey='projects:header'>
-        <a href="https://github.com/elPaleniozord" ><GithubIcon /></a>
+        <IconLink href='https://github.com/elPaleniozord' variant={'github'} />
       </Heading>
       
       <StyledParagraph>

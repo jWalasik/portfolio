@@ -2,13 +2,10 @@ import React, { useState } from 'react'
 import Section from '../Atoms/Section'
 import { Trans, useTranslation } from 'react-i18next'
 import styled from 'styled-components'
-
-import {ReactComponent as Linked} from '../../assets/icons/linkedin.svg'
-import {ReactComponent as Mail} from '../../assets/icons/mail.svg'
-
 import Status from '../Atoms/Status'
 import ContactForm from '../Molecules/ContactForm'
 import Heading from '../Molecules/Heading'
+import IconLink from '../Atoms/Icon'
 
 interface Fields {
   [key:string]: string
@@ -23,13 +20,10 @@ const Contact = () => {
   return (
     <Section id='contact'>
       <Heading i18nKey='contact:header'>
-        <a href=''><Linked /></a>
-        <a href='mailto: jacekwalasik89@gmail.com'><Mail /></a>
+        <IconLink href='https://www.linkedin.com/in/jacek-walasik-4453a2141/' variant='linked' />
+        <IconLink href='mailto: jacekwalasik89@gmail.com' variant='mail' />
       </Heading>
-      {/* <StyledHeader>
-        <Trans i18nKey='contact:header'></Trans>
 
-      </StyledHeader> */}
       <StyledParagraph><Trans i18nKey='contact:description'></Trans></StyledParagraph>
       <Status />
       <ContactForm fields={fields}/>      
@@ -37,24 +31,6 @@ const Contact = () => {
   )
 }
 
-const StyledHeader = styled.h2`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  &>svg {
-    width: 44px;
-    height: 44px;
-    fill: ${({theme})=> theme.color.neon};
-    cursor: pointer;
-    opacity: .5;
-    transition: all .3s;
-  }
-  &>svg:hover {
-    opacity: 1;
-  }
-`
 const StyledParagraph = styled.p`
   width: 100%;
 `

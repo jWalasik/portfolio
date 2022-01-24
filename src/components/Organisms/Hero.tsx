@@ -60,6 +60,7 @@ const HeroWrapper = styled(Section)`
   grid-template-columns: 10% 80% 10%;
   grid-template-rows: 15% 30% 15% 20% 20%;
   background: none;
+  margin: 0;
 
   @media ${({theme}) => theme.breakpoints.mobile} {
     grid-template-rows: 15% 25% 15% 25% 20%;
@@ -96,7 +97,6 @@ const StyledSubtitle = styled.h2`
     font-size: ${({theme})=>theme.fontSize.subtitle};
     font-family: ${({theme})=>theme.font.body};
     letter-spacing: .225em;
-    color: ${({theme})=>theme.color.offwhite};
   }
 `
 const StyledFadeEffect = styled(Fader)`

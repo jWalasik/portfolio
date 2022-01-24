@@ -29,7 +29,7 @@ const theme = {
     caption: 'clamp(14px, 14px + 1vw, 18px)',
     body: 'clamp(16px, 16px + 1vw, 22px)',
     large: 'clamp(23px, 1.333rem, 29px)',
-    headline: 'clamp(29px, 5vw, 35px)',
+    headline: 'clamp(25px, 2rem, 35px)',
     subtitle: 'clamp(28px, 5vw, 40px)',
     title: 'clamp(47px, 8vw, 80px)'
   },
