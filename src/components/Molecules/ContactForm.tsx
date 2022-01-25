@@ -120,10 +120,6 @@ const EmailForm = ({fields}) => {
 
   return (
     <StyledForm data-netlify='true' name='contact' method='post'>
-      <StyledAddress>
-        <StyledIcon/>
-        <a href="mailto:jacekwalasik89@gmail.com">jacekwalasik89@gmail.com</a>
-      </StyledAddress>
       {inputs}
       <StyledButton onClick={formSubmit}>{fields.submit}</StyledButton>
     </StyledForm>
@@ -136,20 +132,6 @@ const StyledForm = styled.form`
   justify-content: space-around;
   align-content: center;
   width: 100%;
-`
-const StyledAddress = styled.address`
-  display: flex;
-  margin: ${({theme}) => theme.spacing.m};
-  &> a {
-    font-style: normal;
-    text-decoration: none;
-    color: ${({theme}) => theme.color.neon};
-  }
-`
-const StyledIcon = styled(Mail)`
-  height: 32px;
-  fill: ${({theme}) => theme.color.neon};
-  margin-right: ${({theme}) => theme.spacing.xs};
 `
 
 const StyledButton = styled.button`

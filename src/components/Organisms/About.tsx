@@ -12,7 +12,6 @@ const About = () => {
   return (
     <Section id='about'>
       <Heading i18nKey='about:header'><IconLink href={process.env.PUBLIC_URL + '/pdfs/Jacek_Walasik_Resume_Dev.pdf'} variant='resume'/></Heading>
-
       <Bio />
       <TechStack />
     </Section>

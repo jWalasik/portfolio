@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { ScrollContext } from '../../ctx/Scroll'
 
 const Section = ({id, className, children} : {id: string, className?: string, children: React.ReactNode}) => {  
-  const {addRef} = useContext(ScrollContext)
+  const { addRef } = useContext(ScrollContext)
   const ref = useMemo(()=>addRef(id), [id])
   
   return (
