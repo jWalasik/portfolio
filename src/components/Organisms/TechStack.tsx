@@ -4,9 +4,9 @@ import Skills from '../Molecules/Skills'
 
 const TechStack = () => {  
   return (
-    <StackWrapper>
+
       <Skills />   
-    </StackWrapper>
+
   )
 }
 

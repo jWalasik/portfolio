@@ -1,7 +1,6 @@
-import React, {useEffect, useReducer, useState} from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
-import {ReactComponent as Mail} from '../../assets/icons/mail.svg'
 
 interface Fields {
   [key:string]: any
@@ -59,8 +58,6 @@ const EmailForm = ({fields}) => {
   
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    //@ts-ignore
-    // tslint:disable-next-line
     if(!Object.values(values).every(field => field.isValid)){
       console.log('invalid')
       return 
@@ -107,12 +104,12 @@ const EmailForm = ({fields}) => {
 
   const inputs = Object.entries(fields).map(([key, label]: [string, string]) => {
     if(key !== 'submit') return (
-      // @ts-ignore
       <FormInput 
-        key={key} 
-        label={label} 
-        onChange={handleChange} 
-        values={values[key]}
+        key={key}
+        label={label}
+        onChange={handleChange}
+        values={values[key]} 
+        type={key === 'email' ? 'email' : 'text'} 
       />
     )
     else return null

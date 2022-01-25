@@ -50,7 +50,7 @@ const theme = {
   breakpoints: {
     mobile: `screen and (max-width: 425px)`,
     tablet: `screen and (min-width: 426px) and (max-width: 1024px)`,
-    desktop: `screen and (min-width: 1024px)`,
+    desktop: `screen and (min-width: 1025px)`,
     // mobileM: `screen and (min-width: 320px) and (max-width: 375px)`,
     // mobileL: `screen and (min-width: 375px) and (max-width: 425px)`,
     // tablet: `screen and (min-width: 425px) and (max-width: 768px)`,

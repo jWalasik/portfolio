@@ -2,12 +2,10 @@ import * as React from 'react'
 import styled from 'styled-components'
 import { Trans, useTranslation } from 'react-i18next'
 
-import {ReactComponent as Database} from '../../assets/database.svg'
-import {ReactComponent as Backend} from '../../assets/gear.svg'
-import {ReactComponent as Frontend} from '../../assets/frontend.svg'
-import {ReactComponent as Core} from '../../assets/laptop.svg'
-import ShapeSVG from './ShapeSVG'
-import CardWrapper from './CardWrapper'
+import {ReactComponent as Database} from '../../assets/images/database.svg'
+import {ReactComponent as Backend} from '../../assets/images/gear.svg'
+import {ReactComponent as Frontend} from '../../assets/images/frontend.svg'
+import {ReactComponent as Core} from '../../assets/images/tools.svg'
 
 type Skills = object
 
@@ -27,69 +25,57 @@ const Skills = () => {
   //   })
   return (
     <SkillsWrapper>
-      {/* {technologies} */}
-      <CardWrapper background="core">
-        <FlexBox>
-          <StyledHeader>{`{ Core }`}</StyledHeader>
-          <StyledParagraph>
-            <Trans>
-              Delivery of high quality codebase
-              Adhering to modern standards
-              Heavy emphasis on maintenance and best practices
-            </Trans>
-          </StyledParagraph>
-          <Techs>FAV TECHS: Javascript, Typescript, Jest, GIT
-          </Techs>
-        </FlexBox>
-
-      </CardWrapper>
-
-      <CardWrapper>
-      <FlexBox>
+      <TechWrapper>
         <StyledHeader>{`< Frontend />`}</StyledHeader>
-        <Frontend stroke='red' width='100px'/>
+        <Frontend />
         <StyledParagraph>
           <Trans>
             Cutting edge websites and applications
             Responsiveness and Accessibility
 
           </Trans>
+          FAV TECHS: React, Redux, Styled Components
         </StyledParagraph>
-        <Techs>FAV TECHS: React, Redux, Styled Components,
-        </Techs>
-        </FlexBox>
-      </CardWrapper>
+      </TechWrapper>
 
-      <CardWrapper>
-      <FlexBox>
+      <TechWrapper>
+        <StyledHeader>{`{ Core }`}</StyledHeader>
+        <Core />
+        <StyledParagraph>
+          <Trans>
+            Delivery of high quality codebase
+            Adhering to modern standards
+            Heavy emphasis on maintenance and best practices
+          </Trans>
+          FAV TECHS: Javascript, Typescript, Jest, GIT
+        </StyledParagraph>
+      </TechWrapper>
+
+      <TechWrapper>
         <StyledHeader>{`[ Backend ]`}</StyledHeader>
-        <Backend stroke='red' width='100px'/>
+        <Backend />
         <StyledParagraph>
           <Trans>
             Servers
             Microservices
             REST/GraphQL APIs
             Bots
-          </Trans>        
+          </Trans>
+          Fav Techs: Node.js, GraphQL, Next.js      
         </StyledParagraph>
-        <Techs>Fav Techs: Node.js, GraphQL, Next.js</Techs>
-        </FlexBox>
-      </CardWrapper>
+      </TechWrapper>
 
-      <CardWrapper>
-      <FlexBox>
+      <TechWrapper>
         <StyledHeader>{`( Databases )`}</StyledHeader>
-        <Database stroke='red' width='100px'/>
+        <Database />
         <StyledParagraph>
           <Trans>
             SQL and noSQL databases
             Maintanance, migrations, and backups
-          </Trans> 
+          </Trans>
+          Fav Techs: Prisma, MongoDB, Firebase
         </StyledParagraph>    
-        <Techs>Fav Techs: Prisma, MongoDB, Firebase</Techs>  
-        </FlexBox>  
-      </CardWrapper>
-
+      </TechWrapper>
     </SkillsWrapper>
   )
 }
@@ -99,25 +85,44 @@ const SkillsWrapper = styled.ul`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  width: 100%;
+`
+const TechWrapper = styled.div`
+  border: 1px solid green;
+  border-radius: 15px;
+  display: grid;
+  grid-template-rows: 20% 50% 30%;
+  grid-template-columns: 35% 65%;
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  margin: ${({theme}) => theme.spacing.m} 0;
+  padding: ${({theme}) => theme.spacing.m};
+
+  svg {
+    fill: none;
+    stroke: ${({theme}) => theme.color.neon};
+    filter: url(#glow);
+    grid-area: 2/2/4/4;
+    opacity: .1;
+  }
+
+  @media screen and (max-width: 750px) {
+    max-width: 750px;
+  } 
 `
 
 const StyledHeader = styled.h3.attrs(props => {})`
+  grid-area: 1/1/1/3;
   margin: 0;
   align-self: center;
   font-weight: 100;
   font-family: ${({theme}) => theme.font.accent};
 `
-const Techs = styled.div`
-`
 
 const StyledParagraph = styled.p`
-  
-`
-
-const FlexBox = styled.div`
-  display: flex;
-  flex-direction: column;
-  grid-area: 2/2/2/2
+  grid-area: 2/1/3/3;
+  font-weight: 100;
 `
 
 export default Skills

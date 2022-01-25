@@ -31,9 +31,8 @@ const FormInput = ({label, onChange, values: {id, isValid, touched, value='', va
         minLength={validation.minLength}
         required={validation.isReq}
       />
-
-      <BeveledBorder />
       <LabelWrapper isValid={touched && !isValid} value={value}>{validation.message !== '' && touched ? validation.message : label}</LabelWrapper>
+      <BeveledBorder />
     </FieldWrapper>
   )
 }
