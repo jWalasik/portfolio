@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 interface ButtonProps {
-  id: string
+  id?: string
   onClick: (e: Event) => void
 }
 

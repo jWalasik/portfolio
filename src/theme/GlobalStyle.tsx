@@ -5,14 +5,14 @@ const GlobalStyle = createGlobalStyle<{ theme: ThemeType }>`
   @font-face {
     font-family: 'Lato';
     font-weight: 100, 200, 300, 400, 600, 900;
-    font-display: auto;
+    font-display: swap;
     font-style: normal;
     src: url('./fonts/lato.woff2') format('woff2');
   }
   @font-face {
     font-family: 'Titillium Web';
     font-style: normal;
-    font-display: auto;
+    font-display: swap;
     font-weight: 100,200,300,400,600,900;
     src: url('./fonts/titillium-web.woff2') format('woff2')
   }

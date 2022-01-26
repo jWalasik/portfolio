@@ -1,9 +1,16 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import FormInput from './FormInput'
+import Modal from './Modal'
 
 interface Fields {
   [key:string]: any
+}
+
+interface Status {
+  sending: boolean
+  status: 'success' | 'failure' | undefined
+  message: string
 }
 
 const initialValues = {
@@ -54,27 +61,42 @@ const initialValues = {
 
 const EmailForm = ({fields}) => {
   const [values, setValues] = useState<Fields>(initialValues)
-  // const [state, dispatch] = useReducer(reducer, initialValues, init)
+  const [state, setState] = useState<Status>({sending: false, status: undefined, message: ''})
   
   const formSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    if(!Object.values(values).every(field => field.isValid)){
-      console.log('invalid')
-      return 
-    }
-    console.log('all valid')
 
-    fetch('/', {
-      method: 'POST',
-      headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-      body: encode({'form-name': 'contact', ...values})
-    })
+    if(!Object.values(values).every(field => field.isValid)){
+      return 
+    } else {
+      setState({...state, sending: true})
+
+      fetch('/', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: encode({'form-name': 'contact', ...values})
+      })
       .then(res => {
-        console.log(res)
+        if(res.ok) {
+          setState({
+            sending: false, 
+            status: 'success', 
+            message: 'Thank you for reaching out, I usually respond in 1-2 work days.'})
+        } else {
+          setState({
+            sending: false, 
+            status: 'failure', 
+            message: 'Something unexpected happened, try again later or use alternate contact method. Sorry for inconvenience.'})
+        }
+        return res
       })
       .catch(err => {
-        console.log(err)
+        setState({
+          sending: false, 
+          status: 'failure', 
+          message: 'Something unexpected happened, try again later or use alternate contact method. Sorry for inconvenience.'})
       })
+    }
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -96,9 +118,13 @@ const EmailForm = ({fields}) => {
     setValues({...values, [name]: update})
   }
 
+  const handleModal = () => {
+    setState({...state, status: undefined})
+  }
+
   const encode = (data) => {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key].value))
       .join('&')
   }
 
@@ -116,9 +142,14 @@ const EmailForm = ({fields}) => {
   })
 
   return (
-    <StyledForm data-netlify='true' name='contact' method='post'>
+    <StyledForm data-netlify='true' name='contact' method='post' onSubmit={e => e.preventDefault()}>
       {inputs}
-      <StyledButton onClick={formSubmit}>{fields.submit}</StyledButton>
+      <StyledButton onClick={formSubmit}>{state.sending ? 'SENDING' : fields.submit}</StyledButton>
+
+      <Modal show={state.status !== undefined} handler={handleModal}>
+        <p>{state.message}</p>
+      </Modal>
+
     </StyledForm>
   )
 }
