@@ -22,7 +22,7 @@ function App() {
           <GlobalStyle />
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/' component={FourOhFour} />
+            <Route path='*' component={FourOhFour} />
           </Switch>
         </Providers>
       </Suspense>

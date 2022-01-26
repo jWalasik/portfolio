@@ -63,7 +63,7 @@ const EmailForm = ({fields}) => {
   const [values, setValues] = useState<Fields>(initialValues)
   const [state, setState] = useState<Status>({sending: false, status: undefined, message: ''})
   
-  const formSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
 
     if(!Object.values(values).every(field => field.isValid)){
@@ -82,19 +82,15 @@ const EmailForm = ({fields}) => {
             sending: false, 
             status: 'success', 
             message: 'Thank you for reaching out, I usually respond in 1-2 work days.'})
-        } else {
-          setState({
-            sending: false, 
-            status: 'failure', 
-            message: 'Something unexpected happened, try again later or use alternate contact method. Sorry for inconvenience.'})
-        }
-        return res
+        } 
+        else throw new Error(res.status + " - " + res.statusText)
       })
       .catch(err => {
+        console.log(err)
         setState({
           sending: false, 
           status: 'failure', 
-          message: 'Something unexpected happened, try again later or use alternate contact method. Sorry for inconvenience.'})
+          message: `${err}`})
       })
     }
   }
@@ -142,15 +138,17 @@ const EmailForm = ({fields}) => {
   })
 
   return (
-    <StyledForm data-netlify='true' name='contact' method='post' onSubmit={e => e.preventDefault()}>
-      {inputs}
-      <StyledButton onClick={formSubmit}>{state.sending ? 'SENDING' : fields.submit}</StyledButton>
-
+    <>
+      <StyledForm data-netlify='true' name='contact' method='POST' >
+        {inputs}
+        <StyledButton onClick={handleSubmit}>{state.sending ? 'SENDING' : fields.submit}</StyledButton>
+      </StyledForm>
+      
       <Modal show={state.status !== undefined} handler={handleModal}>
         <p>{state.message}</p>
       </Modal>
+    </>
 
-    </StyledForm>
   )
 }
 
