@@ -18,15 +18,21 @@ const Header = () => {
     setPrevious(window.pageYOffset)
   }
 
+  const handleReload = () => {
+    window.location.reload()
+  }
+
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
+    window.onload = function() {document.body.scrollTop = document.documentElement.scrollTop = 0;};
 
-    return () => window.removeEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)}
   }, [previous, shown])
 
   return (
     <HeaderWrapper shown={shown}>
-      <span>jWalasik</span>
+      <ButtonWrapper onClick={handleReload}>jWalasik</ButtonWrapper>
 
       <Menu />
       
@@ -90,11 +96,17 @@ const HeaderWrapper = styled.header.attrs(props => {
 const ButtonWrapper = styled.button`
   height: 44px;
   background-color: transparent;
-  color: ${({theme}) => theme.color.neon};
+  color: ${({theme}) => theme.color.offwhite};
   font-size: 16px;
   border: none;
   cursor: pointer;
   margin-right:  ${({theme}) => theme.spacing.s};
+  transition: all .3s;
+
+  &:hover {
+    color: ${({theme}) => theme.color.neon};
+    filter: url(#glow);
+  }
 `
 
 export default Header

@@ -46,11 +46,7 @@ const StyledUL = styled.ul`
   display: flex;
   list-style: none;
   margin: 0px;
-  transition: all .6s ease-in;
-
-  @media screen and (max-width: 768px) {
-
-  }
+  transition: all .3s ease-in;
 
   .active {
     color: ${({theme})=>theme.color.neon};
@@ -68,6 +64,15 @@ const StyledLI = styled.li`
   justify-content: space-around;
   align-items: center;
   transition: all .3s;
+
+  &:hover {
+    color: ${({theme})=>theme.color.neon};
+    filter: url(#glow);
+
+    .icon {
+      fill: ${({theme})=>theme.color.neon};
+    }
+  }
 
   .border {
     position: absolute;

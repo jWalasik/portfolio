@@ -15,8 +15,6 @@ const Card = ({project}) => {
 
   useLayoutEffect(()=> {
     setLine(drawLine(project.title)) 
-    const stack=document.getElementById(`${project.title+'stack'}`)
-    //console.log(stack.getBoundingClientRect())
 
     if(dimensionsRef.current) {
       setDimensions({
@@ -30,7 +28,15 @@ const Card = ({project}) => {
         height: dimensionsRef.current.offsetHeight
       })
     })
-  }, [dimensionsRef])
+
+    return () => {
+      window.removeEventListener('resize', ()=>{
+        setDimensions({
+          width: dimensionsRef.current.offsetWidth,
+          height: dimensionsRef.current.offsetHeight
+        })
+    })}
+  }, [])
 
   const drawLine = (target) => {
     const parent = dimensionsRef.current.getBoundingClientRect()
