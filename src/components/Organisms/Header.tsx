@@ -24,7 +24,6 @@ const Header = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll)
-    window.onload = function() {document.body.scrollTop = document.documentElement.scrollTop = 0;};
 
     return () => {
       window.removeEventListener('scroll', handleScroll)}

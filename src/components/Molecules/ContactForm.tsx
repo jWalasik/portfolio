@@ -70,11 +70,10 @@ const EmailForm = ({fields}) => {
       return 
     } else {
       setState({...state, sending: true})
-
       fetch('/', {
         method: 'POST',
         headers: {'Content-Type': 'application/x-www-form-urlencoded'},
-        body: encode({'form-name': 'contact', ...values})
+        body: 'form-name=contact&'+encode(values)
       })
       .then(res => {
         if(res.ok) {
@@ -90,7 +89,9 @@ const EmailForm = ({fields}) => {
         setState({
           sending: false, 
           status: 'failure', 
-          message: `${err}`})
+          message: `Something unexpect happened on our end. Try again later or use alternate contact method. 
+            Sorry for inconvenience.
+            ${err}`})
       })
     }
   }
@@ -117,11 +118,12 @@ const EmailForm = ({fields}) => {
   const handleModal = () => {
     setState({...state, status: undefined})
   }
-
+  //makes sure 
   const encode = (data) => {
-    return Object.keys(data)
+    const encoded = Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key].value))
       .join('&')
+    return encoded
   }
 
   const inputs = Object.entries(fields).map(([key, label]: [string, string]) => {

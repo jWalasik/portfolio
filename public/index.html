@@ -30,8 +30,8 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
-    <!-- Netlify bots cant read javascript generated form , thus placeholder has to be present in base html file-->
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <!-- Netlify bots cant read javascript generated form, thus placeholder has to be present in base html file-->
+    <form name="contact" netlify data-netlify='true' netlify-honeypot="bot-field" hidden>
       <input type="text" name="name" />
       <input type="email" name="email" />
       <textarea name="message"></textarea>
